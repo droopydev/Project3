@@ -1,3 +1,10 @@
 SUP PEOPLE
 
+<<<<<<< Updated upstream
 Triying out new stuff
+=======
+Triying out new stuffg
+
+
+TRYING WOEIFIWEF
+>>>>>>> Stashed changes
