@@ -4,11 +4,13 @@
 <div class="card" style="width: 30rem;">
   <% unless tuition.avatar_url.nil? %><%= image_tag tuition.avatar_url(:display) %><% end %> 
   <div class="card-body">
-    <h5 class="card-title"><%= tuition.company_name%></h5>
+    <h5 class="card-title"><%= tuition.centre_name%></h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href=<%= tuition_path(tuition) %> class="btn btn-info">Preview</a>
-    <a href=<%= edit_tuition_path(tuition) %> class="btn btn-success">Edit</a>
-  </div>
+    <a href=<%= edit_tuition_path(tuition) %> class="btn btn-warning">Edit</a>
+    <%= link_to 'Delete', tuition_path(tuition),
+        method: :delete,
+        data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
 </div>
 
 <% end %>

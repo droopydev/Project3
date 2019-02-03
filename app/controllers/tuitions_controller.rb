@@ -29,10 +29,14 @@ class TuitionsController < ApplicationController
     end
   
     def destroy
+        @tuition = Tuition.find(params[:id])
+        @tuition.destroy
+      
+        redirect_to root_path
     end
 
     private
     def tuition_params
-        params.require(:tuition).permit(:company_id, :avatar)
+        params.require(:tuition).permit(:centre_name, :reg_no, :contact_no, :location, :description, :avatar)
     end
   end
