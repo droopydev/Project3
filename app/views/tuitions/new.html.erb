@@ -1,12 +1,8 @@
 <h1>New Tuition Form </h1>
 <%= form_with scope: :tuition, url: tuitions_path, local: true do |form| %>
     <p>
-      Company ID 
-      <%= form.text_field :company_id, placeholder: "E.g. 09J32K0" %>
-    </p>
-    <p>
-      Company Name
-      <%= form.text_field :company_name, placeholder: "E.g. ABC Nursery" %>
+      Centre Name
+      <%= form.text_field :centre_name, placeholder: "E.g. ABC Nursery" %>
     </p>
     <p>
       Business Registration No.
@@ -24,11 +20,6 @@
       Description
       <%= form.text_area :description %>
     </p>
-    <p>
-      URL
-    
-    </p>
-   
   
     <legend>Avatar</legend>
     <%= form.file_field :avatar %>
