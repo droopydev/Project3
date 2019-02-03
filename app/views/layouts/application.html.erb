@@ -22,7 +22,11 @@
   
   <span class="navbar-text ml-auto">
     <a href="#">Sign Up</a>
-    <a href="#">Login</a>
+    <% if client_signed_in? %>
+    <%= link_to 'Log out', destroy_client_session_url, method: :delete %>
+    <% else %>
+    <%= link_to 'Log in', new_client_session_url %>
+    <% end %>
   </span>
 </nav>
     <%= yield %>
