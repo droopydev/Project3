@@ -1,0 +1,21 @@
+<h1>Edit Tuition Centre Particulars</h1>
+
+<%= form_with scope: :tuition, model: @tuition, local: true do |form| %>
+
+  <p>
+    <%= form.label :company_id %><br>
+    <%= form.text_field :company_id, :value => @tuition.company_id %>
+  </p>
+
+  <p>
+    <legend>Avatar</legend><br>
+    <%= form.file_field :avatar %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Back', root_path %>

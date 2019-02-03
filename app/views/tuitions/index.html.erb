@@ -1,0 +1,19 @@
+<h1>Tuition Index</h1>
+
+<table>
+  <tr>
+    <th>Company ID</th>
+    <th>Avatar</th>
+    <th>Show</th>
+    <th>Edit</th>
+  </tr>
+
+  <% @tuitions.each do |tuition| %>
+    <tr>
+      <td><%= tuition.company_id %></td>
+      <td><% unless tuition.avatar_url.nil? %><%= image_tag tuition.avatar_url(:display) %><br /><% end %></td>
+      <td><%= link_to 'Show', tuition_path(tuition) %></td>
+      <td><%= link_to 'Edit', edit_tuition_path(tuition) %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,9 @@
+development:
+  cloud_name: "beepbeepbeep"
+  api_key: "452867746377847"
+  api_secret: "jLlvbcp372hzeqPgsnw0OzJZurIrails g uploader avatar"
+
+production:
+  cloud_name: "beepbeepbeep"
+  api_key: "452867746377847"
+  api_secret: "jLlvbcp372hzeqPgsnw0OzJZurIrails g uploader avatar"
