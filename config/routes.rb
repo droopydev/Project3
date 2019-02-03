@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :parents
   root 'tuitions#index'
   get '/tuitions/new' => 'tuitions#new', as: 'new_tuition'
   post '/tuitions' => 'tuitions#create'
