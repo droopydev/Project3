@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<br/><br/><br/>
+
+<p>
+  <strong>Saluatation:</strong>
+  <%= @parent.saluatation %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @parent.name %>
+</p>
+
+<p>
+  <strong>Contact no:</strong>
+  <%= @parent.contact_no %>
+</p>
+
+<%= link_to 'Edit', edit_parent_path(@parent) %> |
+<%= link_to 'Back', parents_path %>
