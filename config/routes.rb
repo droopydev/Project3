@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_scope :user do
     root 'devise/sessions#new'
     # get "/sign_in" => "devise/sessions#new" # custom path to login/sign_in
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   
   # devise_for :users
   get '/tuitions' => 'tuitions#index', as: 'tuitions'
+  resources :parents
   get '/tuitions/new' => 'tuitions#new', as: 'new_tuition'
   post '/tuitions' => 'tuitions#create'
   get '/tuitions/:id' => 'tuitions#show', as: 'tuition'
