@@ -3,9 +3,26 @@
 <%= form_with scope: :tuition, model: @tuition, local: true do |form| %>
 
   <p>
-    <%= form.label :company_id %><br>
-    <%= form.text_field :company_id, :value => @tuition.company_id %>
+    <%= form.label :centre_name %><br>
+    <%= form.text_field :centre_name, :value => @tuition.centre_name %>
   </p>
+
+  <p>
+      Business Registration No.
+      <%= form.text_field :reg_no, :value => @tuition.reg_no %>
+    </p>
+    <p>
+      Contact No
+      <%= form.text_field :contact_no, :value => @tuition.contact_no %>
+    </p>
+    <p>
+      Location
+      <%= form.text_area :location, :value => @tuition.location %>
+    </p>
+    <p>
+      Description
+      <%= form.text_area :description, :value => @tuition.description %>
+    </p>
 
   <p>
     <legend>Avatar</legend><br>
