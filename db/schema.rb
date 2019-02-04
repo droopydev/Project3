@@ -10,20 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_03_124103) do
+ActiveRecord::Schema.define(version: 2019_02_04_072104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "parents", force: :cascade do |t|
-    t.string "saluatation"
-    t.string "name"
-    t.integer "contact_no"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "tuitions", force: :cascade do |t|
+  create_table "centres", force: :cascade do |t|
     t.string "centre_name"
     t.text "reg_no"
     t.integer "contact_no"
@@ -33,7 +25,34 @@ ActiveRecord::Schema.define(version: 2019_02_03_124103) do
     t.datetime "updated_at", null: false
     t.string "avatar"
     t.bigint "user_id"
-    t.index ["user_id"], name: "index_tuitions_on_user_id"
+    t.index ["user_id"], name: "index_centres_on_user_id"
+  end
+
+  create_table "centres_courses", force: :cascade do |t|
+    t.bigint "centres_id"
+    t.bigint "courses_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["centres_id"], name: "index_centres_courses_on_centres_id"
+    t.index ["courses_id"], name: "index_centres_courses_on_courses_id"
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.string "course_name"
+    t.text "description"
+    t.integer "age"
+    t.text "category"
+    t.integer "credits"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "parents", force: :cascade do |t|
+    t.string "salutation"
+    t.string "name"
+    t.integer "contact_no"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,5 +68,5 @@ ActiveRecord::Schema.define(version: 2019_02_03_124103) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "tuitions", "users"
+  add_foreign_key "centres", "users"
 end

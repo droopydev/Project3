@@ -6,15 +6,15 @@ Rails.application.routes.draw do
   # end
 
   devise_for :users
-  root 'tuitions#index'
-  get '/tuitions/error' => 'tuitions#error', as: 'error'
-  get '/tuitions' => 'tuitions#index', as: 'tuitions'
-  get '/tuitions/new' => 'tuitions#new', as: 'new_tuition'
-  post '/tuitions' => 'tuitions#create'
-  get '/tuitions/:id' => 'tuitions#show', as: 'tuition'
-  get '/tuitions/:id/edit' => 'tuitions#edit', as: 'edit_tuition'
-  patch '/tuitions/:id' => 'tuitions#update'
-  delete '/tuitions/:id' => 'tuitions#destroy', as: 'delete_tuition'
+  root 'centres#index'
+  get '/centres/error' => 'centres#error', as: 'error'
+  get '/centres' => 'centres#index', as: 'centres'
+  get '/centres/new' => 'centres#new', as: 'new_centre'
+  post '/centres' => 'centres#create'
+  get '/centres/:id' => 'centres#show', as: 'centre'
+  get '/centres/:id/edit' => 'centres#edit', as: 'edit_centre'
+  patch '/centres/:id' => 'centres#update'
+  delete '/centres/:id' => 'centres#destroy', as: 'delete_centre'
   
   resources :parents
 end
