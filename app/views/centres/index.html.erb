@@ -1,16 +1,31 @@
-<h1>Centre Index</h1>
+
+<div class style="margin: 2rem">
+<h1>Centres Dashboard</h1>
+<br/>
+<a href=<%= new_centre_path %> class="btn btn-dark">+ Add Centre</a>
+</div>
+
+<div class="row">
 
 <% @centres.each do |centre| %>
+<div class="col-6 col-sm-4">
+<div style="margin: 2rem;">
 <div class="card" style="width: 30rem;">
   <% unless centre.avatar_url.nil? %><%= image_tag centre.avatar_url(:display) %><% end %> 
-  <div class="card-body">
+  <div class="card-body" ">
     <h5 class="card-title"><%= centre.centre_name%></h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href=<%= tuition_path(centre) %> class="btn btn-info">Preview</a>
-    <a href=<%= edit_tuition_path(centre) %> class="btn btn-warning">Edit</a>
-    <%= link_to 'Delete', tuition_path(centre),
+    <p class="card-text"><%= centre.description %></p>
+    <a href=<%= centres_path(centre) %> class="btn btn-info">Preview</a>
+    <a href=<%= edit_centre_path(centre) %> class="btn btn-warning">Edit</a>
+    <%= link_to 'Delete', centre_path(centre),
         method: :delete,
-        data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>     
+  </div>
+</div>
+</div>
 </div>
 
 <% end %>
+</div>
+
+
