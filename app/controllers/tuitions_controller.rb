@@ -1,7 +1,7 @@
 class TuitionsController < ApplicationController
     before_action :authenticate_user!
     def index
-        @tuitions = Tuition.all
+        @tuitions = Tuition.where(user_id: current_user.id)
     end
   
     def show
@@ -17,16 +17,16 @@ class TuitionsController < ApplicationController
   
     def create
         @tuition = Tuition.new(tuition_params)
-      
+        @tuition.user_id = current_user.id
         @tuition.save
         redirect_to @tuition
     end
   
     def update
-    @tuition = Tuition.find(params[:id])
-    
-    @tuition.update(tuition_params)
-    redirect_to @tuition
+        @tuition = Tuition.find(params[:id])
+        
+        @tuition.update(tuition_params)
+        redirect_to @tuition
     end
   
     def destroy
