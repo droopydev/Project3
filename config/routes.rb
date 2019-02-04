@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'tuitions#index'
+  get '/tuitions/error' => 'tuitions#error', as: 'error'
   get '/tuitions' => 'tuitions#index', as: 'tuitions'
   get '/tuitions/new' => 'tuitions#new', as: 'new_tuition'
   post '/tuitions' => 'tuitions#create'
