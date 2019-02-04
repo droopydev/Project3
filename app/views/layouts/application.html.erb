@@ -20,12 +20,22 @@
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
   
-  <span class="navbar-text ml-auto">
-    <a href="#">Sign Up</a>
-    <a href="#">Login</a>
-    <%= link_to 'Logout', destroy_user_session_url, method: :delete %>
-  </span>
-</nav>
+    <span class="navbar-text ml-auto">
+
+    <% if client_signed_in? %>
+    <%= link_to 'Parent Logout', destroy_client_session_url, method: :delete %>
+    <% else %>
+    <%= link_to 'Parent Login', new_client_session_url %>
+    <% end %>
+
+    <% if user_signed_in? %>
+    <%= link_to 'Centre Logout', destroy_user_session_url, method: :delete %>
+    <% else %>
+    <%= link_to 'Centre Login', new_user_session_url %>
+    <% end %>
+    
+    </span>
+    </nav>
     <%= yield %>
   </body>
 </html>

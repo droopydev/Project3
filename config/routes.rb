@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
-  # devise_scope :user do
-  # #   get "/sign_in" => "devise/sessions#new" # custom path to login/sign_in
-  #   get "/users/sign_up" => "devise/registrations#new", as: "new_user_registration" # custom path to sign_up/registration
-  # end
+  devise_for :clients,path: 'clients', controllers: {sessions: "clients/sessions"}
+  devise_scope :client do
+    get "/client/sign_in" => "clients/sessions#new"  # custom path to login/sign_in
+    get "/client/sign_up" => "clients/registrations#new", as: "new_client_signup" # custom path to sign_up/registration
+  end
 
   devise_for :users
   root 'centres#index'
