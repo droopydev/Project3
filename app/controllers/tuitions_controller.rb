@@ -6,6 +6,9 @@ class TuitionsController < ApplicationController
   
     def show
         @tuition = Tuition.find(params[:id])
+        if @tuition.user_id != current_user.id
+            redirect_to error_path
+        end
     end
   
     def new
@@ -13,6 +16,9 @@ class TuitionsController < ApplicationController
   
     def edit
         @tuition = Tuition.find(params[:id])
+        if @tuition.user_id != current_user.id
+            redirect_to error_path
+        end
     end
   
     def create
@@ -34,6 +40,10 @@ class TuitionsController < ApplicationController
         @tuition.destroy
       
         redirect_to root_path
+    end
+
+    def error
+        
     end
 
     private
