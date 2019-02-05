@@ -1,31 +1,59 @@
 
 <div class style="margin: 2rem">
-<h1>Centres Dashboard</h1>
+<h1><%= current_user.company_name %>'s Dashboard</h1>
 <br/>
 <a href=<%= new_centre_path %> class="btn btn-dark">+ Add Centre</a>
+<a href=<%= new_course_path %> class="btn btn-dark">+ Add Course</a>
 </div>
 
 <div class="row">
-
-<% @centres.each do |centre| %>
-<div class="col-6 col-sm-4">
-<div style="margin: 2rem;">
-<div class="card" style="width: 30rem;">
-  <% unless centre.avatar_url.nil? %><%= image_tag centre.avatar_url(:display) %><% end %> 
-  <div class="card-body" ">
-    <h5 class="card-title"><%= centre.centre_name%></h5>
-    <p class="card-text"><%= centre.description %></p>
-    <a href=<%= centres_path(centre) %> class="btn btn-info">Preview</a>
-    <a href=<%= edit_centre_path(centre) %> class="btn btn-warning">Edit</a>
-    <%= link_to 'Delete', centre_path(centre),
-        method: :delete,
-        data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>     
+  <div class="col-1">
+  </div>
+  <div class="col-4">
+    <h3>Centres</h3>
+  </div>
+  <div class="col-6">
+    <h3>Courses</h3>
   </div>
 </div>
-</div>
-</div>
 
+
+<% @centres.each do |centre| %>
+<div class="row paddingbot">
+  <div class="col-1">
+  </div>
+  <div class="col-4 bg-secondary">
+  <div class="card" style="width: 25rem;">
+    <% unless centre.avatar_url.nil? %><%= image_tag centre.avatar_url(:display) %><% end %> 
+    <div class="card-body" ">
+    <h5 class="card-title"><%= centre.centre_name%></h5>
+    <p class="card-text"><%= centre.description %></p>
+    <a href=<%= centre_path(centre) %> class="btn btn-info">Preview</a>
+    <a href=<%= edit_centre_path(centre) %> class="btn btn-warning">Edit</a>
+    <%= link_to 'Delete', centre_path(centre),
+    method: :delete,
+    data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>     
+    </div>
+  </div>
+  
+  </div>
+  <div class="col-6 bg-secondary">
+  <% centre.courses.each do |course| %>
+    <div class="col-6 col-sm-4">
+    <div class="card" style="width: 20rem;">
+    <div class="card-body" ">
+    <h5 class="card-title"><%= course.course_name%></h5>
+    <p class="card-text"><%= course.description %></p>
+    <a href=<%= course_path(course) %> class="btn btn-info">Preview</a>
+    <a href=<%= edit_course_path(course) %> class="btn btn-warning">Edit</a>
+    <%= link_to 'Delete', course_path(course),
+    method: :delete,
+    data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>     
+    </div>
+    </div>
+    </div>
+    
+    <% end %>
+  </div>
+</div>
 <% end %>
-</div>
-
-
