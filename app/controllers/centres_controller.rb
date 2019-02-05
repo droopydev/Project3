@@ -5,6 +5,7 @@ class CentresController < ApplicationController
 
     def index
         @centres = Centre.where(user_id: current_user.id)
+        @courses = Course.where(user_id: current_user.id)
     end
   
     def show
@@ -28,25 +29,24 @@ class CentresController < ApplicationController
         @centre = Centre.new(tuition_params)
         @centre.user_id = current_user.id
         @centre.save
-        redirect_to @centre
+        redirect_to centres_path
     end
   
     def update
         @centre = Centre.find(params[:id])
         
         @centre.update(tuition_params)
-        redirect_to @centre
+        redirect_to centres_path
     end
   
     def destroy
         @centre = Centre.find(params[:id])
         @centre.destroy
       
-        redirect_to root_path
+        redirect_to centres_path
     end
 
     def error
-        
     end
 
     private

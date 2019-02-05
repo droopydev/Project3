@@ -1,0 +1,33 @@
+<h1>Edit Course Particulars</h1>
+
+<%= form_with scope: :course, model: @course, local: true do |form| %>
+
+  <p>
+    Course Name
+    <%= form.text_field :course_name, :value => @course.course_name %>
+  </p>
+  <p>
+    Description
+    <%= form.text_area :description, :value => @course.description %>
+  </p>
+  
+  <p>
+      Age
+      <%= form.text_field :age, :value => @course.age %>
+    </p>
+    <p>
+     Category
+      <%= form.text_field :category, :value => @course.category %>
+    </p>
+    <p>
+      Credits
+      <%= form.text_field :credits, :value => @course.credits %>
+    </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Back', centres_path %>

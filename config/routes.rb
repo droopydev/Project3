@@ -7,7 +7,11 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'centres#homepage'
-  get '/centres/error' => 'centres#error', as: 'error'
+
+  # error page for unauthorised access
+  get '/error' => 'centres#error', as: 'error'
+
+  # centres path
   get '/centres' => 'centres#index', as: 'centres'
   get '/centres/new' => 'centres#new', as: 'new_centre'
   post '/centres' => 'centres#create'
@@ -15,10 +19,16 @@ Rails.application.routes.draw do
   get '/centres/:id/edit' => 'centres#edit', as: 'edit_centre'
   patch '/centres/:id' => 'centres#update'
   delete '/centres/:id' => 'centres#destroy', as: 'delete_centre'
+  
 
+  # courses path
   get '/courses' => 'courses#index', as: 'courses'
   get '/courses/new' => 'courses#new', as: 'new_course'
   post '/courses' => 'courses#create'
+  get '/courses/:id' => 'courses#show', as: 'course'
+  get '/courses/:id/edit' => 'courses#edit', as: 'edit_course'
+  patch '/courses/:id' => 'courses#update'
+  delete '/courses/:id' => 'courses#destroy', as: 'delete_course'
   
   resources :parents
 end
