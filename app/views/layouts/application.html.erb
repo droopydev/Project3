@@ -7,6 +7,10 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -20,12 +24,60 @@
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
   
-  <span class="navbar-text ml-auto">
-    <a href="#">Sign Up</a>
-    <a href="#">Login</a>
-    <%= link_to 'Logout', destroy_user_session_url, method: :delete %>
-  </span>
-</nav>
+    <span class="navbar-text ml-auto">
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      Login
+    </button>
+    
+    <% if client_signed_in? %>
+    <%= link_to 'Parent Logout', destroy_client_session_url, method: :delete %>
+    <% else %>
+    <%= link_to 'Parent Login', new_client_session_url %>
+    <% end %>
+
+    <% if user_signed_in? %>
+    <%= link_to 'Centre Logout', destroy_user_session_url, method: :delete %>
+    <% else %>
+    <%= link_to 'Centre Login', new_user_session_url %>
+    <% end %>
+    
+    </span>
+    </nav>
+
+    <div class="modal fade" id="exampleModal" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Welcome there</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          <ul class="nav nav-tabs nav-fill" id="tabContent">
+          <li class="active nav-item"><a href="#parents" data-toggle="tab">Parent Login</a></li> &nbsp;
+          <li class="nav-item"><a href="#centres" data-toggle="tab">Centre Login</a></li>
+          </ul>
+    
+        <div class="tab-content">
+
+          
+          <div class="tab-pane" id="parents">
+          PARENTS FORM
+          </div> 
+  
+          <div class="tab-pane" id="centres">
+          CENTRES FORM
+          </div> 
+
+        </div>
+  
+          </div>
+
+        </div>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>
