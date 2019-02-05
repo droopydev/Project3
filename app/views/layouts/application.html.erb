@@ -31,15 +31,17 @@
     </button>
     
     <% if client_signed_in? %>
-    <%= link_to 'Parent Logout', destroy_client_session_url, method: :delete %>
-    <% else %>
-    <%= link_to 'Parent Login', new_client_session_url %>
+    <button type="button" class="btn btn-info"><%= link_to 'Parent Logout', destroy_client_session_url, method: :delete %></button>
     <% end %>
 
     <% if user_signed_in? %>
-    <%= link_to 'Centre Logout', destroy_user_session_url, method: :delete %>
-    <% else %>
-    <%= link_to 'Centre Login', new_user_session_url %>
+    <button type="button" class="btn btn-info"><%= link_to 'Centre Logout', destroy_user_session_url, method: :delete %></button>
+    <% end %>
+    
+    <% if !user_signed_in? && !client_signed_in? %>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      Login
+    </button>
     <% end %>
     
     </span>
@@ -62,13 +64,54 @@
     
         <div class="tab-content">
 
-          
-          <div class="tab-pane" id="parents">
-          PARENTS FORM
+          <div class="active tab-pane" id="parents">
+          <h2>Hello Parents</h2>
+
+            <%= form_for(:client, :url => session_path(:client)) do |f| %>
+              <div class="field">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :password %><br />
+                <%= f.password_field :password, autocomplete: "current-password" %>
+              </div>
+
+              <div class="actions">
+                <%= f.submit "Log in" %>
+              </div>
+            <% end %>
+
+            <a href=<%="/clients/sign_up"%>>Sign Up</a>
+
+           <br />
+
           </div> 
   
           <div class="tab-pane" id="centres">
-          CENTRES FORM
+
+          <h2>Hello Centre Admins</h2>
+
+            <%= form_for(:user, :url => session_path(:user)) do |f| %>
+              <div class="field">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :password %><br />
+                <%= f.password_field :password, autocomplete: "current-password" %>
+              </div>
+
+              <div class="actions">
+                <%= f.submit "Log in" %>
+              </div>
+            <% end %>
+
+            <a href=<%="/users/sign_up"%>>Sign Up</a>
+            
+            <br />
           </div> 
 
         </div>
