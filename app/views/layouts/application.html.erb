@@ -21,9 +21,12 @@
   </form>
   
   <span class="navbar-text ml-auto">
-    <a href="#">Sign Up</a>
-    <a href="#">Login</a>
+  <% if user_signed_in? %>
     <%= link_to 'Logout', destroy_user_session_url, method: :delete %>
+  <% else %>
+    <a href="#">Login</a>
+    <a href="#">Sign Up</a>
+    <% end %> 
   </span>
 </nav>
     <%= yield %>
