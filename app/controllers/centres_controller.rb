@@ -1,5 +1,7 @@
 class CentresController < ApplicationController
-    before_action :authenticate_user!, :except => [:homepage]
+  
+    before_action :authenticate_user!, :except => [:homepage] 
+  
     def homepage
     end
 
