@@ -1,7 +1,33 @@
-body { 
-    padding-top: 65px; 
+body {
+    padding-top: 65px;
 }
 
 .paddingbot {
     padding-bottom: 50px;
+}
+
+.form-main-wrapper {
+	background-color: red;
+	flex-direction: column;
+	display: flex;
+	margin: 50px;
+	border-radius: 20px;
+	}
+
+.form-input-wrapper {
+	background-color: green;
+	flex-direction: row;
+	display: flex
+}
+
+.form-right {
+	order: 2;
+	background-color: yellow;
+	flex-grow: 1;
+}
+
+.form-left {
+	order: 1;
+	flex-grow: 1;
+	background-color: blue;
 }
