@@ -4,10 +4,43 @@
 }
 
 .sidebar {
-	background-color: #38C9B8;
-	width: 200px;
+	background-color: #59616A;
+	color: white;
+	width: 250px;
 	height: 800px;
+	font-weight: 400;
+	font-family: 'Quicksand', sans-serif;
 }
+
+.sidebar ul {
+	display: block;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	position: relative;
+}
+
+.sidebar li {
+	background-color: green;
+	display: block;
+  list-style: outside none none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.sidebar li:hover {
+	color: white;
+}
+
+
+.sidebar a {
+  padding: 7px 10px 7px 20px;
+	text-decoration: none;
+	color: #a7b8ce;
+	border-left: 3px solid transparent
+}
+
 
 .content {
 	width: 100%;
