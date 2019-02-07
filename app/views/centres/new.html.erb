@@ -1,35 +1,35 @@
-<h1>New Centre Form </h1>
-<%= form_with scope: :centre, url: centres_path, local: true do |form| %>
-    <p>
-      Centre Name
-      <%= form.text_field :centre_name, placeholder: "E.g. ABC Nursery" %>
-    </p>
-    <p>
-      Business Registration No.
-      <%= form.text_field :reg_no %>
-    </p>
-    <p>
-      Contact No
-      <%= form.text_field :contact_no %>
-    </p>
-    <p>
-      Location
-      <%= form.text_area :location %>
-    </p>
-    <p>
-      Description
-      <%= form.text_area :description %>
-    </p>
-    <p>
-    Offers Course(s): 
- <%= form.collection_check_boxes :course_ids, @courses, :id, :course_name %><br>
- </p>
-  
-    <%= form.file_field :avatar %>
-
-    <p>
-      <%= form.submit %>
-    </p>
-<% end %>
-
-<%= link_to 'Back', root_path %>
+<div class="form-main-wrapper">
+<h1>New Centre </h1>
+		<%= form_with scope: :centre, url: centres_path, local: true do |form| %>
+	<div class="form-input-wrapper">
+			<div class="form-right">
+				<ul>
+					<li>
+				    <%= label_tag(:centre_name, "Centre Name") %>
+				    <%= form.text_field :centre_name, placeholder: "E.g. ABC Nursery" %>
+				  </li>
+				  <li>
+				    <%= label_tag(:reg_no, "Registration No.") %>
+			      <%= form.text_field :reg_no %>
+			    </li>
+			    <li>
+						<%= label_tag(:location, "Location") %>
+				    <%= form.select(:location, options_for_select([['North'], ['South'], ['East'], ['West']]), {:prompt => 'Select Person'} ) %>
+				  </li>
+				  <li>
+			      <%= label_tag(:contact_no, "Contact No.") %>
+				    <%= form.text_field :contact_no %>
+				  </li>
+				  <li class="form-description">
+				    <%= label_tag(:description, "Description", :class => "label-description") %>
+				    <%= form.text_area :description %>
+				  </li>
+			  </ul>
+		  </div>
+			<div class="form-left">
+		    <%= form.file_field :avatar %>
+		  </div>
+	</div>
+		  <%= form.submit(:class => "button-submit") %>
+	<% end %>
+</div>
