@@ -65,14 +65,20 @@
             </button>
           </div>
           <div class="modal-body">
-          <ul class="nav nav-tabs nav-fill" id="tabContent">
-          <li class="active nav-item"><a href="#parents" data-toggle="tab">Parent Login</a></li> &nbsp;
-          <li class="nav-item"><a href="#centres" data-toggle="tab">Centre Login</a></li>
-          </ul>
+         
+          <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+          <li class="active nav-item">
+            <a class="nav-link active" id="parents-tab" data-toggle="tab" href="#parents" role="tab" aria-controls="parents" aria-selected="true">I'm a Parent</a>
+          </li> &nbsp;
+          <li class="nav-item">
+            <a class="nav-link" id="centres-tab" data-toggle="tab" href="#centres" role="tab" aria-controls="centres" aria-selected="false">I'm a Centre Admin</a>
+          </li>
+        </ul>
     
-        <div class="tab-content">
+        <div class="tab-content" id="myTabContent">
 
-          <div class="active tab-pane" id="parents">
+          <div class="active tab-pane" id="parents" role="tabpanel" aria-labelledby="parents-tab">
+          <br/>
           <h2>Hello Parents</h2>
 
             <%= form_for(:client, :url => session_path(:client)) do |f| %>
@@ -85,19 +91,22 @@
                 <%= f.label :password %><br />
                 <%= f.password_field :password, autocomplete: "current-password" %>
               </div>
+              <br/>
 
               <div class="actions">
                 <%= f.submit "Log in" %>
               </div>
             <% end %>
+            <br/>
 
-            <a data-dismiss="modal" data-toggle="modal" href="#exampleModal1">Sign up here!</a>
+            <a data-dismiss="modal" data-toggle="modal" href="#exampleModal1">Not yet a member? Sign up here!</a>
 
            <br />
 
           </div> 
   
-          <div class="tab-pane" id="centres">
+          <div class="tab-pane" id="centres" role="tabpanel" aria-labelledby="centres-tab">
+          <br/>
 
           <h2>Hello Centre Admins</h2>
 
@@ -111,13 +120,15 @@
                 <%= f.label :password %><br />
                 <%= f.password_field :password, autocomplete: "current-password" %>
               </div>
+              <br/>
 
               <div class="actions">
                 <%= f.submit "Log in" %>
               </div>
             <% end %>
+            <br/>
 
-            <a data-dismiss="modal" data-toggle="modal" href="#exampleModal1" tabindex="2">Sign up here!</a>
+            <a data-dismiss="modal" data-toggle="modal" href="#exampleModal1" tabindex="2">Not yet a member? Sign up here!</a>
             <br />
           </div> 
 
@@ -127,77 +138,105 @@
 
         </div>
       </div>
-    </div>
-
-
+    </div> 
 
     <div class="modal fade" id="exampleModal1" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Welcome there</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+            <h5 class="modal-title" id="exampleModalLabel">Take the leap to the latest study pass ever</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
           </div>
           <div class="modal-body">
-          <ul class="nav nav-tabs nav-fill" id="tabContent">
-          <li class="active nav-item"><a href="#parents2" data-toggle="tab">Parent Login</a></li> &nbsp;
-          <li class="nav-item"><a href="#centres2" data-toggle="tab">Centre Login</a></li>
-          </ul>
+            <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+              <li class="active nav-item">
+                <a class="nav-link active" id="parents-tab" data-toggle="tab" href="#parents2" role="tab" aria-controls="parents" aria-selected="true">I'm a Parent</a>
+              </li> &nbsp;
+              <li class="nav-item">
+                <a class="nav-link" id="centres-tab" data-toggle="tab" href="#centres2" role="tab" aria-controls="centres" aria-selected="false">I'm a Centre Admin</a>
+              </li>
+            </ul>
     
-        <div class="tab-content">
+          <div class="tab-content" id="myTabContent">
 
-          <div class="active tab-pane" id="parents2">
+          <div class="active tab-pane" id="parents2" role="tabpanel" aria-labelledby="parents-tab">
+          <br/>
           <h2>Welcome Parents</h2>
-
-            <%= form_for(:client, :url => session_path(:client)) do |f| %>
+          
+            <%= form_for(:client, :url => registration_path(:client)) do |f| %>
+            
               <div class="field">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
               </div>
-
+            
               <div class="field">
-                <%= f.label :password %><br />
-                <%= f.password_field :password, autocomplete: "current-password" %>
+                <%= f.label :password %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "new-password" %>
               </div>
-
+            
+              <div class="field">
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+              </div>
+              <br />
+            
               <div class="actions">
-                <%= f.submit "Log in" %>
+                <%= f.submit "Sign up" %>
               </div>
             <% end %>
-            <a data-dismiss="modal" data-toggle="modal" href="#exampleModal" tabindex="2">Sign in here!</a>
             <br />
-           <br />
+
+            <a data-dismiss="modal" data-toggle="modal" href="#exampleModal" tabindex="2">Already a member? Sign in here!</a>
+            <br />
+            
 
           </div> 
   
-          <div class="tab-pane" id="centres2">
-
+          <div class="tab-pane" id="centres2" role="tabpanel" aria-labelledby="centres-tab">
+          <br/>
           <h2>Welcome Centre Admins</h2>
 
-            <%= form_for(:user, :url => session_path(:user)) do |f| %>
+            <%= form_for(:user, :url => registration_path(:user)) do |f| %>
+              
+            
               <div class="field">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
               </div>
-
+            
               <div class="field">
-                <%= f.label :password %><br />
-                <%= f.password_field :password, autocomplete: "current-password" %>
+                <%= f.label :password %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "new-password" %>
               </div>
-
+            
+              <div class="field">
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+              </div>
+              <br />
+            
               <div class="actions">
-                <%= f.submit "Log in" %>
+                <%= f.submit "Sign up" %>
               </div>
+         
             <% end %>
+            <br/>
 
-            <a data-dismiss="modal" data-toggle="modal" href="#exampleModal" tabindex="2">Sign in here!</a>
+            <a data-dismiss="modal" data-toggle="modal" href="#exampleModal" tabindex="2">Already a member? Sign in here!</a>
             
             <br />
           </div> 
 
-        </div>
+          </div>
   
           </div>
 
