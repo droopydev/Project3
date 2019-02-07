@@ -22,7 +22,12 @@
     <p>
       Credits
       <%= form.text_field :credits, :value => @course.credits %>
+    </p> 
+    <p>Offered @
+    <%= form.collection_check_boxes :centre_ids, @centres, :id, :centre_name %>
     </p>
+
+    <%= form.file_field :avatar %>
 
   <p>
     <%= form.submit %>
@@ -30,4 +35,4 @@
 
 <% end %>
 
-<%= link_to 'Back', centres_path %>
+<%= link_to 'Back', courses_path %>
