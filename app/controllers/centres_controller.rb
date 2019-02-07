@@ -5,9 +5,13 @@ class CentresController < ApplicationController
     def homepage
     end
 
-    def index
+    def dashboard
         @centres = Centre.where(user_id: current_user.id)
         @courses = Course.where(user_id: current_user.id)
+    end
+    
+    def index
+        @centres = Centre.where(user_id: current_user.id)
     end
   
     def show
@@ -18,10 +22,12 @@ class CentresController < ApplicationController
     end
   
     def new
+        @courses = Course.where(user_id: current_user.id)
     end
   
     def edit
         @centre = Centre.find(params[:id])
+        @courses = Course.where(user_id: current_user.id)
         if @centre.user_id != current_user.id
             redirect_to error_path
         end
@@ -51,8 +57,15 @@ class CentresController < ApplicationController
     def error
     end
 
+
+    def remove_course
+        @centre = Centre.find(params[:id])
+        @centre.courses.delete(Course.find(params[:course_id]))
+        redirect_to dashboard_path
+    end
+
     private
     def tuition_params
-        params.require(:centre).permit(:centre_name, :reg_no, :contact_no, :location, :description, :avatar)
+        params.require(:centre).permit(:centre_name, :reg_no, :contact_no, :location, :description, :avatar, :course_ids => [])
     end
   end

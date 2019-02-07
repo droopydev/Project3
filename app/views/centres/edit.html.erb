@@ -24,6 +24,10 @@
       <%= form.text_area :description, :value => @centre.description %>
     </p>
 
+    <p>Offer Course(s):
+    <%= form.collection_check_boxes :course_ids, @courses, :id, :course_name %>
+    </p>
+
   <p>
     <legend>Avatar</legend><br>
     <%= form.file_field :avatar %>
