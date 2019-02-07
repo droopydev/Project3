@@ -1,28 +1,38 @@
 <div class="form-main-wrapper">
-<h1>New Centre Form </h1>
+<h1>New Centre </h1>
 		<%= form_with scope: :centre, url: centres_path, local: true do |form| %>
 	<div class="form-input-wrapper">
 			<div class="form-right">
-		    <%= label_tag(:centre_name, "Centre Name") %>
-		    <%= form.text_field :centre_name, placeholder: "E.g. ABC Nursery" %>
-
-		    <%= label_tag(:reg_no, "Registration No") %>
-	      <%= form.text_field :reg_no %>
-
-	      <%= label_tag(:contact_no, "Contact Number") %>
-		    <%= form.text_field :contact_no %>
-
-				<%= label_tag(:location, "Location") %>
-		    <%= form.text_field :location %>
-
-		    <%= label_tag(:description, "Description") %>
-		    <%= form.text_area :description %>
+				<ul>
+					<li>
+				    <%= label_tag(:centre_name, "Centre Name") %>
+				    <%= form.text_field :centre_name, placeholder: "E.g. ABC Nursery" %>
+				  </li>
+				  <li>
+				    <%= label_tag(:reg_no, "Registration No.") %>
+			      <%= form.text_field :reg_no %>
+			    </li>
+			    <li>
+						<%= label_tag(:location, "Location") %>
+				    <%= form.text_field :location %>
+				  </li>
+				  <li>
+			      <%= label_tag(:contact_no, "Contact No.") %>
+				    <%= form.text_field :contact_no %>
+				  </li>
+				  <li class="form-description">
+				    <%= label_tag(:description, "Description", :class => "label-description") %>
+				    <%= form.text_area :description %>
+				  </li>
+			  </ul>
 		  </div>
 			<div class="form-left">
 		    <%= form.file_field :avatar %>
 		  </div>
 	</div>
-		  <p><%= form.submit %></p>
+		  <%= form.submit(:class => "button-submit") %>
 	<% end %>
-<%= link_to 'Back', root_path %>
 </div>
+
+
+<!-- select_tag "credit_card", options_for_select([ "VISA", "MasterCard" ], "MasterCard") -->

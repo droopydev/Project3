@@ -1,13 +1,17 @@
 body {
     padding-top: 65px;
+    background-color: #EDF0F1!important;
 }
 
 .paddingbot {
     padding-bottom: 50px;
 }
 
+/* FORMS */
+
+
 .form-main-wrapper {
-	background-color: red;
+	background-color: white;
 	flex-direction: column;
 	display: flex;
 	margin: 50px;
@@ -15,19 +19,91 @@ body {
 	}
 
 .form-input-wrapper {
-	background-color: green;
 	flex-direction: row;
 	display: flex
 }
 
-.form-right {
-	order: 2;
-	background-color: yellow;
-	flex-grow: 1;
-}
+.form-main-wrapper h1 {
+	font-size: 1.5em;
+  text-align: left;
+  padding: 2% 0 0 4%;
+  }
 
 .form-left {
 	order: 1;
-	flex-grow: 1;
-	background-color: blue;
+	width: 50%;
+	background-color: white;
+}
+
+.form-right {
+	font-size: 13px;
+	order: 2;
+	width: 50%;
+	background-color: white;
+}
+
+.form-right ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.form-right li {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 100px 10px 50px;
+}
+
+.form-right label {
+	color: black;
+	font-weight: 300;
+	margin: 0;
+}
+
+.label-description {
+    padding-bottom: 60px;
+}
+
+.form-right input {
+    background-color: #F9F9F9;
+    border-style: solid;
+    border-color: #dcdee2;
+    border-radius: 5px;
+    border-width: thin;
+    height: 3em;
+    width: 60%;
+    }
+
+.form-right input::placeholder {
+	padding-left:10px;
+	color: #aeb1b7;
+}
+
+.form-right textarea:focus, .form-right input:focus{
+    outline: 1px solid #38C9B8;
+}
+
+.form-right textarea {
+	background-color: #F9F9F9;
+	border-style: solid;
+	border-color: #dcdee2;
+	border-radius: 5px;
+	border-width: thin;
+	width: 60%;
+	height: 8em;
+}
+
+.button-submit {
+		background-color: #38C9B8;
+		color: white;
+		padding: 0 1em;
+    height: 3em;
+    border-radius: 5px;
+    border-style: none;
+    display: flex;
+    margin: 1em auto;
 }
