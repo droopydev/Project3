@@ -36,9 +36,14 @@
 
 .sidebar a {
   padding: 7px 10px 7px 20px;
-	text-decoration: none;
-	color: #a7b8ce;
-	border-left: 3px solid transparent
+  text-decoration: none;
+  display: block;
+  color: #a7b8ce;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-label {
+	color: white;
 }
 
 
