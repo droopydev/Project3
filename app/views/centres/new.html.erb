@@ -14,7 +14,8 @@
 			    </li>
 			    <li>
 						<%= label_tag(:location, "Location") %>
-				    <%= form.text_field :location %>
+				    <!-- <%= form.text_field :location %> -->
+				    <%= form.select :location, ['North', 'South', 'East', 'West'] %>
 				  </li>
 				  <li>
 			      <%= label_tag(:contact_no, "Contact No.") %>
