@@ -14,8 +14,7 @@
 			    </li>
 			    <li>
 						<%= label_tag(:location, "Location") %>
-				    <!-- <%= form.text_field :location %> -->
-				    <%= form.select :location, ['North', 'South', 'East', 'West'] %>
+				    <%= form.select(:location, options_for_select([['North'], ['South'], ['East'], ['West']]), {:prompt => 'Select Person'} ) %>
 				  </li>
 				  <li>
 			      <%= label_tag(:contact_no, "Contact No.") %>
