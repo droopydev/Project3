@@ -24,8 +24,11 @@
        Offered @ 
     <%= form.collection_check_boxes :centre_ids, @centres, :id, :centre_name %><br>
     </p>
+
+    <%= form.file_field :avatar %><br>
+
       <%= form.submit %>
     </p>
 <% end %>
 
-<%= link_to 'Back', root_path %>
+<%= link_to 'Back', courses_path %>

@@ -20,6 +20,10 @@
       Description
       <%= form.text_area :description %>
     </p>
+    <p>
+    Offers Course(s): 
+ <%= form.collection_check_boxes :course_ids, @courses, :id, :course_name %><br>
+ </p>
   
     <%= form.file_field :avatar %>
 
