@@ -37,7 +37,7 @@
 		    <% end %>
 
 		    <% if user_signed_in? %>
-		    <button type="button" class="btn btn-info"><%= link_to 'Centre Logout', destroy_user_session_url, method: :delete %></button>
+		    <button type="button" class="centre-logout"><%= link_to 'Logout', destroy_user_session_url, method: :delete %></button>
 		    <% end %>
 
 		    <% if !user_signed_in? && !client_signed_in? %>

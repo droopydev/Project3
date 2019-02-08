@@ -21,34 +21,40 @@
 }
 
 .sidebar li {
-	background-color: green;
 	display: block;
   list-style: outside none none;
   margin: 0;
   padding: 0;
   position: relative;
+  text-decoration: none;
 }
 
 .sidebar li:hover {
-	color: white;
+	text-decoration: none;
 }
 
 .sidebar i {
 	color: white;
 }
 
-
 .sidebar a {
   padding: 7px 10px 7px 20px;
-  text-decoration: none;
   display: block;
   color: #a7b8ce;
   border-left: 3px solid transparent;
 }
 
+.sidebar a:hover{
+	text-decoration: none;
+}
+
 .sidebar-label {
   padding-left: 10px;
 	color: white;
+}
+
+.sidebar-label:hover {
+	color:blue;
 }
 
 

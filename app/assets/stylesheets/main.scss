@@ -15,7 +15,9 @@ body {
 	flex-direction: column;
 	display: flex;
 	margin: 50px;
-	border-radius: 20px;
+	border-radius: 5px;
+	box-shadow: 0 0 5px 0 rgba(43,43,43,.1), 0 11px 6px -7px rgba(43,43,43,.1);
+	transition: all .3s ease-in-out;
 	}
 
 .form-input-wrapper {
