@@ -83,6 +83,10 @@
           <h2>Hello Parents</h2>
 
             <%= form_for(:client, :url => session_path(:client)) do |f| %>
+              <%- flash.each do |name, msg| -%>
+                <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+              <%- end -%>
+              <%= devise_error_messages! %>
               <div class="field">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -112,6 +116,10 @@
           <h2>Hello Centre Admins</h2>
 
             <%= form_for(:user, :url => session_path(:user)) do |f| %>
+              <%- flash.each do |name, msg| -%>
+                <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+              <%- end -%>
+              <%= devise_error_messages! %>
              
               <div class="field">
                 <%= f.label :email %><br />
@@ -171,6 +179,11 @@
 
             <%= form_for(:client, :url => registration_path(:client)) do |f| %>
 
+              <%- flash.each do |name, msg| -%>
+                <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+              <%- end -%>
+              <%= devise_error_messages! %>
+
               <div class="field">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -207,8 +220,10 @@
           <h2>Welcome Centre Admins</h2>
 
             <%= form_for(:user, :url => registration_path(:user)) do |f| %>
-
-
+              <%- flash.each do |name, msg| -%>
+                <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+              <%- end -%>  
+              <%= devise_error_messages! %>
               <div class="field">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
