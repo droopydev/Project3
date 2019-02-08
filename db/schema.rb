@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_02_05_121803) do
   create_table "courses", force: :cascade do |t|
     t.string "course_name"
     t.text "description"
-    t.integer "age"
+    t.text "age"
     t.text "category"
     t.integer "credits"
     t.datetime "created_at", null: false
