@@ -1,29 +1,39 @@
+<% if @course.errors.any? %>
+<div class="alert alert-danger">
+  <strong>Oh no!</strong>  
+  <%= @course.errors.full_messages.join("; ")  %>
+</div>
+<% end %>
+
+
 <h1>New Course Form </h1>
 <%= form_with scope: :course, url: courses_path, local: true do |form| %>
     <p>
       Course Name
-      <%= form.text_field :course_name, placeholder: "E.g. Advanced Abacus" %>
+      <%= form.text_field :course_name, placeholder: "E.g. Advanced Abacus", :required => true %>
     </p>
     <p>
       Description
-      <%= form.text_area :description %>
+      <%= form.text_area :description, :required => true, :maxlength =>"150" %>
     </p>
     <p>
       Age
-      <%= form.text_field :age %>
+      <%= form.text_field :age, :required => true %>
     </p>
     <p>
       Category
-      <%= form.text_field :category %>
+      <%= form.text_field :category, :required => true %>
     </p>
     <p>
       Credits
-      <%= form.text_field :credits %>
+      <%= form.text_field :credits, :required => true %>
     </p>
+    <% if !@centres.empty? %>
     <p>
        Offered @ 
     <%= form.collection_check_boxes :centre_ids, @centres, :id, :centre_name %><br>
     </p>
+    <% end %>
 
     <%= form.file_field :avatar %><br>
 
@@ -31,4 +41,4 @@
     </p>
 <% end %>
 
-<%= link_to 'Back', courses_path %>
+<%= link_to 'Back', dashboard_path %>

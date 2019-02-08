@@ -3,7 +3,7 @@ class Courses < ActiveRecord::Migration[5.2]
     create_table :courses do |t|
       t.string :course_name
       t.text :description
-      t.integer :age
+      t.text :age
       t.text :category
       t.integer :credits
       

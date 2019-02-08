@@ -1,6 +1,6 @@
 class CentresController < ApplicationController
 
-    before_action :authenticate_user!, :except => [:homepage]
+    before_action :authenticate_user!, :except => [:homepage, :error]
 
     def homepage
     end
@@ -23,6 +23,7 @@ class CentresController < ApplicationController
   
     def new
         @courses = Course.where(user_id: current_user.id)
+        @centre = Centre.new
     end
   
     def edit
@@ -36,15 +37,21 @@ class CentresController < ApplicationController
     def create
         @centre = Centre.new(tuition_params)
         @centre.user_id = current_user.id
-        @centre.save
-        redirect_to centres_path
+        if @centre.save
+            redirect_to centres_path
+        else
+            render 'new'
+        end 
     end
   
     def update
         @centre = Centre.find(params[:id])
         
-        @centre.update(tuition_params)
-        redirect_to centres_path
+        if @centre.update(tuition_params)
+            redirect_to centres_path
+        else
+            render 'edit'
+        end
     end
   
     def destroy
