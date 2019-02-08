@@ -1,3 +1,11 @@
+
+<% if @course.errors.any? %>
+<div class="alert alert-danger">
+  <strong>Oh no!</strong>  
+  <%= @course.errors.full_messages.join("; ")  %>
+</div>
+<% end %>
+
 <div class="form-main-wrapper">
 	<h1>New Course</h1>
 	<%= form_with scope: :course, url: courses_path, local: true do |form| %>

@@ -1,3 +1,22 @@
 <% unless @centre.avatar_url.nil? %><%= image_tag @centre.avatar_url(:display) %><br /><% end %>
 
-<%= link_to 'Back', centres_path %>
+<p>Centre Name:</p>
+<%= @centre.centre_name%>
+<p>Registration No:</p>
+<%= @centre.reg_no%>
+<p>Location:</p>
+<%= @centre.location%>
+<p>Contact No:</p>
+<%= @centre.contact_no%>
+<p>Description:</p>
+<%= @centre.description%>
+
+<% @centre.courses.each do |course| %>
+    <%= link_to course.course_name, course_path(course), class: "btn btn-info"%>
+<% end %>
+<br>
+
+
+<%= link_to 'Edit', edit_centre_path %>
+
+<%= link_to 'Back', dashboard_path %>

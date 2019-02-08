@@ -1,3 +1,12 @@
+<% if @centre.errors.any? %>
+<div class="alert alert-danger">
+  <strong>Oh no!</strong>  
+  <%= @centre.errors.full_messages.join("; ")  %>
+</div>
+<% end %>
+
+
+
 <div class="form-main-wrapper">
 	<h1>New Centre </h1>
 			<%= form_with scope: :centre, url: centres_path, local: true do |form| %>

@@ -7,6 +7,7 @@ class CoursesController < ApplicationController
 
     def new
         @centres = Centre.where(user_id: current_user.id)
+        @course = Course.new
     end
     
     def show
@@ -15,14 +16,17 @@ class CoursesController < ApplicationController
         if @course.user_id != current_user.id
             redirect_to error_path
         end
-        
     end
 
     def create
+        @centres = Centre.where(user_id: current_user.id)
         @course = Course.new(course_params)
         @course.user_id  = current_user.id
-        @course.save
-        redirect_to courses_path
+        if @course.save
+            redirect_to courses_path
+        else
+            render 'new'
+        end
     end
 
     def edit
@@ -35,9 +39,13 @@ class CoursesController < ApplicationController
 
     def update
         @course = Course.find(params[:id])
+        @centres = Centre.where(user_id: current_user.id)
         
-        @course.update(course_params)
-        redirect_to @course
+        if @course.update(course_params)
+            redirect_to @course
+        else
+            render 'edit'
+        end
     end
 
     def destroy
