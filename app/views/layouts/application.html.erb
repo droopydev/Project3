@@ -111,6 +111,7 @@
           <h2>Hello Centre Admins</h2>
 
             <%= form_for(:user, :url => session_path(:user)) do |f| %>
+             
               <div class="field">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -166,6 +167,8 @@
           <h2>Welcome Parents</h2>
           
             <%= form_for(:client, :url => registration_path(:client)) do |f| %>
+
+              
             
               <div class="field">
                 <%= f.label :email %><br />
