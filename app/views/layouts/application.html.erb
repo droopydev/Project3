@@ -37,7 +37,10 @@
 		    <% end %>
 
 		    <% if user_signed_in? %>
-		    <button type="button" class="centre-logout"><%= link_to 'Logout', destroy_user_session_url, method: :delete %></button>
+		    <button type="button" class="centre-logout">
+		    	<%= link_to 'Logout', destroy_user_session_url, method: :delete %>
+		    	<span><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+		    </button>
 		    <% end %>
 
 		    <% if !user_signed_in? && !client_signed_in? %>
@@ -247,7 +250,7 @@
 
 		<div class="under-navbar-wrapper">
 			<div class="sidebar">
-				<h1>hello</h1>
+				<h1>Hello Admin!</h1>
 				<ul>
 
 					<li>

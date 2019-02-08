@@ -10,6 +10,7 @@
 	height: 800px;
 	font-weight: 400;
 	font-family: 'Quicksand', sans-serif;
+	box-shadow: 0 2px 15px 0 rgba(43,43,43,.2)
 }
 
 .sidebar ul {
@@ -37,6 +38,10 @@
 	color: white;
 }
 
+.sidebar a:hover i{
+	color: #38C9B8;
+}
+
 .sidebar a {
   padding: 7px 10px 7px 20px;
   display: block;
@@ -53,11 +58,17 @@
 	color: white;
 }
 
-.sidebar-label:hover {
-	color:blue;
+.sidebar a:hover .sidebar-label {
+	color:#38C9B8;
 }
 
 
 .content {
 	width: 100%;
+}
+
+.sidebar h1 {
+	margin: 30px 0 10px 20px;
+  text-align: left;
+  font-size: 15px;
 }
