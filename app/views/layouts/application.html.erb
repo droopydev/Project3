@@ -8,52 +8,53 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </head>
 
   <body>
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  
-  <% if client_signed_in? %>
-    <a class="navbar-brand" href="/">StudyPass</a>
-  <% elsif user_signed_in? %>
-    <a class="navbar-brand" href="/dashboard">StudyPass</a>
-  <% else %>
-    <a class="navbar-brand" href="/">StudyPass</a>
-  <% end %>
-  
-  <form class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
-  
 
-    <span class="navbar-text ml-auto">
-    
-    <% if client_signed_in? %>
-    <button type="button" class="btn btn-info"><%= link_to 'Parent Logout', destroy_client_session_url, method: :delete %></button>
-    <% end %>
+<!-- Navbar -->
 
-    <% if user_signed_in? %>
-    <button type="button" class="btn btn-info"><%= link_to 'Centre Logout', destroy_user_session_url, method: :delete %></button>
-    <% end %>
-    
-    <% if !user_signed_in? && !client_signed_in? %>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-      Login
-    </button>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
-      Sign Up
-    </button>
-    <% end %>
-    
-    </span>
-    </nav>
+	  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+
+			<% if client_signed_in? %>
+			  <a class="navbar-brand" href="/">StudyPass</a>
+			<% elsif user_signed_in? %>
+			  <a class="navbar-brand" href="/dashboard">StudyPass</a>
+			<% else %>
+			  <a class="navbar-brand" href="/">StudyPass</a>
+			<% end %>
+
+	    <span class="navbar-text ml-auto">
+		    <% if client_signed_in? %>
+		    <button type="button" class="btn btn-info"><%= link_to 'Parent Logout', destroy_client_session_url, method: :delete %></button>
+		    <% end %>
+
+		    <% if user_signed_in? %>
+		    <button type="button" class="centre-logout">
+		    	<%= link_to 'Logout', destroy_user_session_url, method: :delete %>
+		    	<span><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+		    </button>
+		    <% end %>
+
+		    <% if !user_signed_in? && !client_signed_in? %>
+		    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+		      Login
+		    </button>
+		    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
+		      Sign Up
+		    </button>
+		    <% end %>
+	    </span>
+	  </nav>
+
+<!-- Modal -->
 
     <div class="modal fade" id="exampleModal" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -65,7 +66,7 @@
             </button>
           </div>
           <div class="modal-body">
-         
+
           <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
           <li class="active nav-item">
             <a class="nav-link active" id="parents-tab" data-toggle="tab" href="#parents" role="tab" aria-controls="parents" aria-selected="true">I'm a Parent</a>
@@ -74,7 +75,7 @@
             <a class="nav-link" id="centres-tab" data-toggle="tab" href="#centres" role="tab" aria-controls="centres" aria-selected="false">I'm a Centre Admin</a>
           </li>
         </ul>
-    
+
         <div class="tab-content" id="myTabContent">
 
           <div class="active tab-pane" id="parents" role="tabpanel" aria-labelledby="parents-tab">
@@ -82,6 +83,10 @@
           <h2>Hello Parents</h2>
 
             <%= form_for(:client, :url => session_path(:client)) do |f| %>
+              <%- flash.each do |name, msg| -%>
+                <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+              <%- end -%>
+              <%= devise_error_messages! %>
               <div class="field">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -103,14 +108,19 @@
 
            <br />
 
-          </div> 
-  
+          </div>
+
           <div class="tab-pane" id="centres" role="tabpanel" aria-labelledby="centres-tab">
           <br/>
 
           <h2>Hello Centre Admins</h2>
 
             <%= form_for(:user, :url => session_path(:user)) do |f| %>
+              <%- flash.each do |name, msg| -%>
+                <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+              <%- end -%>
+              <%= devise_error_messages! %>
+             
               <div class="field">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -130,15 +140,17 @@
 
             <a data-dismiss="modal" data-toggle="modal" href="#exampleModal1" tabindex="2">Not yet a member? Sign up here!</a>
             <br />
-          </div> 
+          </div>
 
         </div>
-  
+
           </div>
 
         </div>
       </div>
-    </div> 
+    </div>
+
+<!-- Modal -->
 
     <div class="modal fade" id="exampleModal1" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -158,20 +170,25 @@
                 <a class="nav-link" id="centres-tab" data-toggle="tab" href="#centres2" role="tab" aria-controls="centres" aria-selected="false">I'm a Centre Admin</a>
               </li>
             </ul>
-    
+
           <div class="tab-content" id="myTabContent">
 
           <div class="active tab-pane" id="parents2" role="tabpanel" aria-labelledby="parents-tab">
           <br/>
           <h2>Welcome Parents</h2>
-          
+
             <%= form_for(:client, :url => registration_path(:client)) do |f| %>
-            
+
+              <%- flash.each do |name, msg| -%>
+                <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+              <%- end -%>
+              <%= devise_error_messages! %>
+
               <div class="field">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
               </div>
-            
+
               <div class="field">
                 <%= f.label :password %>
                 <% if @minimum_password_length %>
@@ -179,13 +196,13 @@
                 <% end %><br />
                 <%= f.password_field :password, autocomplete: "new-password" %>
               </div>
-            
+
               <div class="field">
                 <%= f.label :password_confirmation %><br />
                 <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
               </div>
               <br />
-            
+
               <div class="actions">
                 <%= f.submit "Sign up" %>
               </div>
@@ -194,22 +211,24 @@
 
             <a data-dismiss="modal" data-toggle="modal" href="#exampleModal" tabindex="2">Already a member? Sign in here!</a>
             <br />
-            
 
-          </div> 
-  
+
+          </div>
+
           <div class="tab-pane" id="centres2" role="tabpanel" aria-labelledby="centres-tab">
           <br/>
           <h2>Welcome Centre Admins</h2>
 
             <%= form_for(:user, :url => registration_path(:user)) do |f| %>
-              
-            
+              <%- flash.each do |name, msg| -%>
+                <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+              <%- end -%>  
+              <%= devise_error_messages! %>
               <div class="field">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
               </div>
-            
+
               <div class="field">
                 <%= f.label :password %>
                 <% if @minimum_password_length %>
@@ -217,33 +236,85 @@
                 <% end %><br />
                 <%= f.password_field :password, autocomplete: "new-password" %>
               </div>
-            
+
               <div class="field">
                 <%= f.label :password_confirmation %><br />
                 <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
               </div>
               <br />
-            
+
               <div class="actions">
                 <%= f.submit "Sign up" %>
               </div>
-         
+
             <% end %>
             <br/>
 
             <a data-dismiss="modal" data-toggle="modal" href="#exampleModal" tabindex="2">Already a member? Sign in here!</a>
-            
-            <br />
-          </div> 
 
+            <br />
           </div>
-  
+          </div>
           </div>
 
         </div>
       </div>
     </div>
-    
-    <%= yield %>
+
+<!-- Sidebar -->
+	<% if user_signed_in? %>
+
+		<div class="under-navbar-wrapper">
+			<div class="sidebar">
+				<h1>Hello Admin!</h1>
+				<ul>
+
+					<li>
+						<a href="/dashboard">
+							<span><i class="fa fa-columns" aria-hidden="true"></i></span>
+							<span class="sidebar-label">Dashboard</span>
+						</a>
+					</li>
+
+					<li>
+						<a href=<%= centres_path %>>
+							<span><i class="fa fa-university" aria-hidden="true"></i></span>
+							<span class="sidebar-label">All Centres</span>
+						</a>
+					</li>
+
+					<li>
+						<a href=<%= courses_path %>>
+							<span><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+							<span class="sidebar-label">All Courses</span>
+						</a>
+					</li>
+
+					<li>
+						<a href=<%= new_centre_path %>>
+							<span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+							<span class="sidebar-label">Add Centre</span>
+						</a>
+					</li>
+
+					<li>
+						<a href=<%= new_course_path %>>
+							<span><i class="fa fa-plus-square" aria-hidden="true"></i></span>
+							<span class="sidebar-label">Add Course</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="content">
+				<%= yield %>
+			</div>
+		</div>
+
+	<% else %>
+		<%= yield %>
+	<% end %>
+
+
+
   </body>
 </html>

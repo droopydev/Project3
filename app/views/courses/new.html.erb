@@ -1,3 +1,4 @@
+
 <% if @course.errors.any? %>
 <div class="alert alert-danger">
   <strong>Oh no!</strong>  
@@ -5,40 +6,42 @@
 </div>
 <% end %>
 
-
-<h1>New Course Form </h1>
-<%= form_with scope: :course, url: courses_path, local: true do |form| %>
-    <p>
-      Course Name
-      <%= form.text_field :course_name, placeholder: "E.g. Advanced Abacus", :required => true %>
-    </p>
-    <p>
-      Description
-      <%= form.text_area :description, :required => true, :maxlength =>"150" %>
-    </p>
-    <p>
-      Age
-      <%= form.text_field :age, :required => true %>
-    </p>
-    <p>
-      Category
-      <%= form.text_field :category, :required => true %>
-    </p>
-    <p>
-      Credits
-      <%= form.text_field :credits, :required => true %>
-    </p>
-    <% if !@centres.empty? %>
-    <p>
-       Offered @ 
-    <%= form.collection_check_boxes :centre_ids, @centres, :id, :centre_name %><br>
-    </p>
-    <% end %>
-
-    <%= form.file_field :avatar %><br>
-
-      <%= form.submit %>
-    </p>
-<% end %>
-
-<%= link_to 'Back', dashboard_path %>
+<div class="form-main-wrapper">
+	<h1>New Course</h1>
+	<%= form_with scope: :course, url: courses_path, local: true do |form| %>
+	<div class="form-input-wrapper">
+		<div class="form-right">
+				<ul>
+					<li>
+						<%= label_tag(:course_name, "Course Name") %>
+			      <%= form.text_field :course_name, placeholder: "E.g. Advanced Abacus" %>
+			    </li>
+			    <li>
+						<%= label_tag(:age, "Age") %>
+					    <%= form.select(:age, options_for_select([['3-5 years old'], ['6-10 years old'], ['11-13 years old']]), {:prompt => 'Select Age Group'}, :class => "input-dropdown" ) %>
+			    </li>
+			    <li>
+			    	<%= label_tag(:category, "Category") %>
+			    	<%= form.text_field :category %>
+			    </li>
+			    <li>
+			    	<%=	label_tag(:credits, "Credits") %>
+			    	<%= form.text_field :credits %>
+			    </li>
+			    <li>
+			    	<%= label_tag(:description, "Description") %>
+			    	<%= form.text_area :description %>
+			    </li>
+			    <li>
+			    	<%= label_tag(:centre_name, "Offered @") %>
+			    	<%= form.collection_check_boxes :centre_ids, @centres, :id, :centre_name %>
+			    </li>
+	    	</ul>
+		</div>
+		<div class="form-left">
+	    <%= form.file_field :avatar %>
+	  </div>
+	</div>
+		<%= form.submit(:class => "button-submit") %>
+	<% end %>
+</div>
