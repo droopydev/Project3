@@ -29,12 +29,12 @@ ActiveRecord::Schema.define(version: 2019_02_05_121803) do
   end
 
   create_table "centres_courses", force: :cascade do |t|
-    t.bigint "centres_id"
-    t.bigint "courses_id"
+    t.bigint "centre_id"
+    t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["centres_id"], name: "index_centres_courses_on_centres_id"
-    t.index ["courses_id"], name: "index_centres_courses_on_courses_id"
+    t.index ["centre_id"], name: "index_centres_courses_on_centre_id"
+    t.index ["course_id"], name: "index_centres_courses_on_course_id"
   end
 
   create_table "clients", force: :cascade do |t|

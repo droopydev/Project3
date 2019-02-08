@@ -15,7 +15,9 @@ body {
 	flex-direction: column;
 	display: flex;
 	margin: 50px;
-	border-radius: 20px;
+	border-radius: 5px;
+	box-shadow: 0 0 5px 0 rgba(43,43,43,.1), 0 11px 6px -7px rgba(43,43,43,.1);
+	transition: all .3s ease-in-out;
 	}
 
 .form-input-wrapper {
@@ -69,7 +71,7 @@ body {
 }
 
 .form-right input {
-    background-color: #F9F9F9;
+    // background-color: #F9F9F9;
     border-style: solid;
     border-color: #dcdee2;
     border-radius: 5px;
@@ -83,7 +85,7 @@ body {
 	color: #aeb1b7;
 }
 
-.form-right textarea:focus, .form-right input:focus{
+.form-right textarea:focus, .form-right input:focus, #centre_location:focus {
     outline: 1px solid #38C9B8;
 }
 
@@ -102,7 +104,7 @@ body {
 		color: white;
 		padding: 0 1em;
     height: 3em;
-    border-radius: 5px;
+    border-radius: 3px;
     border-style: none;
     display: flex;
     margin: 1em auto;
