@@ -11,6 +11,12 @@ class ApplicationController < ActionController::Base
           end
    end
 
+
+   def client_controller?
+     !devise_controller? and request.path =~ /^\/client/
+   end
+   helper_method :client_controller?
+
     protected
 
          def configure_permitted_parameters
