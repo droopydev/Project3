@@ -1,55 +1,55 @@
 body {
-    padding-top: 65px;
-    background-color: #EDF0F1!important;
+  padding-top: 65px;
+  background-color: #edf0f1 !important;
 }
 
 .paddingbot {
-    padding-bottom: 50px;
+  padding-bottom: 50px;
 }
 
 /* FORMS */
 
-
 .form-main-wrapper {
-	background-color: white;
-	flex-direction: column;
-	display: flex;
-	margin: 50px;
-	border-radius: 5px;
-	box-shadow: 0 0 5px 0 rgba(43,43,43,.1), 0 11px 6px -7px rgba(43,43,43,.1);
-	transition: all .3s ease-in-out;
-	}
+  background-color: white;
+  flex-direction: column;
+  display: flex;
+  margin: 50px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 0 rgba(43, 43, 43, 0.1),
+    0 11px 6px -7px rgba(43, 43, 43, 0.1);
+  transition: all 0.3s ease-in-out;
+}
 
 .form-input-wrapper {
-	flex-direction: row;
-	display: flex
+  flex-direction: row;
+  display: flex;
 }
 
 .form-main-wrapper h1 {
-	font-size: 1.5em;
+  font-size: 1.5em;
   text-align: left;
   padding: 2% 0 0 4%;
-  }
+}
 
 .form-left {
-	order: 1;
-	width: 50%;
-	background-color: white;
+  order: 1;
+  width: 50%;
+  background-color: white;
 }
 
 .form-right {
-	font-size: 13px;
-	order: 2;
-	width: 50%;
-	background-color: white;
+  font-size: 13px;
+  order: 2;
+  width: 50%;
+  background-color: white;
 }
 
 .form-right ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	display: flex;
-	flex-direction: column;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-right li {
@@ -61,13 +61,13 @@ body {
 }
 
 .form-right label {
-	color: black;
-	font-weight: 300;
-	margin: 0;
+  color: black;
+  font-weight: 300;
+  margin: 0;
 }
 
 .label-description {
-    padding-bottom: 60px;
+  padding-bottom: 60px;
 }
 
 .form-right input {
@@ -81,12 +81,14 @@ body {
     }
 
 .form-right input::placeholder {
-	padding-left:10px;
-	color: #aeb1b7;
+  padding-left: 10px;
+  color: #aeb1b7;
 }
 
-.form-right textarea:focus, .form-right input:focus, #centre_location:focus {
-    outline: 1px solid #38C9B8;
+.form-right textarea:focus,
+.form-right input:focus,
+#centre_location:focus {
+  outline: 1px solid #38c9b8;
 }
 
 .form-right textarea {
