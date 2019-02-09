@@ -57,7 +57,7 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 100px 10px 50px;
+  padding: 10px 60px 10px 30px;
 }
 
 .form-right label {
@@ -71,14 +71,14 @@ body {
 }
 
 .form-right input {
-  // background-color: #F9F9F9;
-  border-style: solid;
-  border-color: #dcdee2;
-  border-radius: 5px;
-  border-width: thin;
-  height: 3em;
-  width: 60%;
-}
+    // background-color: #F9F9F9;
+	border-style: solid;
+    border-color: #dcdee2;
+    border-radius: 5px;
+    border-width: thin;
+    height: 3em;
+    width: 70%;
+    }
 
 .form-right input::placeholder {
   padding-left: 10px;
@@ -92,42 +92,48 @@ body {
 }
 
 .form-right textarea {
-  background-color: #f9f9f9;
-  border-style: solid;
-  border-color: #dcdee2;
-  border-radius: 5px;
-  border-width: thin;
-  width: 60%;
-  height: 8em;
+	background-color: #F9F9F9;
+	border-style: solid;
+	border-color: #dcdee2;
+	border-radius: 5px;
+	border-width: thin;
+	width: 70%;
+	height: 8em;
 }
 
 .button-submit {
-  background-color: #38c9b8;
-  color: white;
-  padding: 0 1em;
-  height: 3em;
-  border-radius: 3px;
-  border-style: none;
-  display: flex;
-  margin: 1em auto;
+		background-color: #38C9B8;
+		color: white;
+		padding: 0 1em;
+    height: 3em;
+    border-radius: 3px;
+    border-style: none;
+    display: flex;
+    margin: 3em auto 1em;
+		transition: all ease-in .3s
+}
+
+.button-submit:hover {
+	background-color: #3fe2cf;
+	transition: all ease-in .3s
 }
 
 #centre_location {
-  background-color: #f9f9f9;
-  border-style: solid;
-  border-color: #dcdee2;
-  border-radius: 5px;
-  border-width: thin;
-  width: 60%;
-  height: 3em;
+	background-color: #F9F9F9;
+	border-style: solid;
+	border-color: #dcdee2;
+	border-radius: 5px;
+	border-width: thin;
+	width: 70%;
+	height: 3em;
 }
 
 .input-dropdown {
-  background-color: #f9f9f9;
-  border-style: solid;
-  border-color: #dcdee2;
-  border-radius: 5px;
-  border-width: thin;
-  width: 60%;
-  height: 3em;
+	background-color: #F9F9F9;
+	border-style: solid;
+	border-color: #dcdee2;
+	border-radius: 5px;
+	border-width: thin;
+	width: 70%;
+	height: 3em;
 }

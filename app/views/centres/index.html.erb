@@ -15,10 +15,20 @@
       <%= link_to 'Delete', centre_path(centre),
           method: :delete,
           data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+    </div>
   </div>
   
    <% end %>
   
 <% end %>
 
+<p>
+<% if user_signed_in? %>
 <%= link_to 'Back', dashboard_path %>
+
+<% else %> 
+
+<%= link_to 'Back', root_path %>
+
+<% end %>
+</p>

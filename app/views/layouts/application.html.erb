@@ -92,8 +92,6 @@
               <%- flash.each do |name, msg| -%>
                 <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
               <%- end -%>
-              <%= devise_error_messages! %>
-        
 
               <div class="field">
                 <%= f.label :email %><br />
@@ -124,19 +122,11 @@
           <h2>Hello Centre Admins</h2>
 
             <%= form_for(:user, :url => session_path(:user)) do |f| %>
-              <% if @user %>
-              <div class="alert alert-primary" role="alert">
-              <%- flash.each do |name, msg| -%>
-                
-                <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-                
-              <%- end -%> 
-              </div> 
-              <%end%>
-              <%= devise_error_messages! %>
+                <%- flash.each do |name, msg| -%>
+                  
+                  <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
 
-
-
+                <%- end -%>
              
               <div class="field">
                 <%= f.label :email %><br />
@@ -199,7 +189,7 @@
               <%- flash.each do |name, msg| -%>
                 <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
               <%- end -%>
-              <%= devise_error_messages! %>
+              
 
               <div class="field">
                 <%= f.label :email %><br />
@@ -213,12 +203,6 @@
                 <% end %><br />
                 <%= f.password_field :password, autocomplete: "new-password" %>
               </div>
-
-              <div class="field">
-                <%= f.label :password_confirmation %><br />
-                <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-              </div>
-              <br />
 
               <div class="actions">
                 <%= f.submit "Sign up" %>
@@ -237,20 +221,12 @@
           <h2>Welcome Centre Admins</h2>
 
             <%= form_for(:user, :url => registration_path(:user)) do |f| %>
-              <div class="alert alert-primary" role="alert">
-              <%- flash.each do |name, msg| -%>
-                
-                <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-                
-              <%- end -%> 
-              </div> 
-              <%= devise_error_messages! %>
             
-              <div class="field">
-              <%= f.label :company_name %><br />
-              <%= f.email_field :company_name, autofocus: true, autocomplete: "company_name" %>
-            </div>
+              <%- flash.each do |name, msg| -%>
+                <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+              <%- end -%>
 
+              
               <div class="field">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -263,12 +239,6 @@
                 <% end %><br />
                 <%= f.password_field :password, autocomplete: "new-password" %>
               </div>
-
-              <div class="field">
-                <%= f.label :password_confirmation %><br />
-                <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-              </div>
-              <br />
 
               <div class="actions">
                 <%= f.submit "Sign up" %>
@@ -332,13 +302,13 @@
 					</li>
 				</ul>
 			</div>
-			<div class="content">
+      <div class="content">
 				<%= yield %>
 			</div>
 		</div>
 
-	<% else %>
-		<%= yield %>
+  <% else %>
+    <%= yield %>
 	<% end %>
 
 

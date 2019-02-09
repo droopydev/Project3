@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Clients::RegistrationsController < Devise::RegistrationsController
+class Users::RegistrationsController < Devise::RegistrationsController
   include Accessible
   skip_before_action :check_user, except: [:new, :create]
   # before_action :configure_sign_up_params, only: [:create]
@@ -54,8 +54,7 @@ class Clients::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
-    # super(resource)
-    # parents_path
+  #   super(resource)
   # end
 
   # The path used after sign up for inactive accounts.

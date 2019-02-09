@@ -1,0 +1,37 @@
+.dashboard-centre-wrapper {
+	display: flex;
+	flex-direction: row;
+	margin:	2em;
+	box-shadow: 0 0 5px 0 rgba(43,43,43,.1), 0 11px 6px -7px rgba(43,43,43,.1);
+}
+
+.dashboard-centre {
+	display: flex;
+	flex-direction: row;
+	background-color: white;
+	overflow: auto;
+	padding: 20px;
+	margin:0;
+	border-radius: 5px 0 0 5px;
+	justify-content: center;
+}
+
+.dashboard-course {
+	display: flex;
+	flex-direction: row;
+	background-color: yellow;
+	flex-grow: 1;
+	// width:70%;
+	padding: 20px;
+	margin:0;
+}
+
+.card {
+	float:left;
+	width: 240px;
+	height: 270px;
+}
+
+.card img {
+	width: 100%;
+}
