@@ -1,44 +1,17 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    
-    <title>Black And White Bootstrap Landing Page / Portfolio</title>
-    
-    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+<section id="about" class="text">
+  <div class="container">
 
-    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
-    
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700|Cardo:400,400italic,700">
-    
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => "reload" %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => "reload" %>
-  </head>
-  <body>
-    
-    <section id="about" class="text">
-      <div class="container">
-
-        <div class="row header_div">
-         
-          <div class="col-lg-6">
-            <p class="header text-justify">Best classes for your bubbly ones.</p> <br/>
-            <p class="header_two text-justify">Introducing a one-stop portal to finding the best tuition, enrichment and playgroup classes. </p>
-            &nbsp;&nbsp;&nbsp;&nbsp;<a href=<%= courses_path %> class="btn btn-outline-primary btn-md">Find a Course</a>
-            <a href=<%= centres_path %> class="float-right btn btn-outline-primary btn-md">Find a Centre</a>
-          </div>
-          <div class="col-lg-6 mx-auto">       
-            <p><%= image_tag('tuition.jpg') %></p>
-          </div>
-        </div>
+    <div class="row header_div">
+      
+      <div class="col-lg-6">
+        <p class="header text-justify">Best classes for your bubbly ones.</p> <br/>
+        <p class="header_two text-justify">Introducing a one-stop portal to finding the best tuition, enrichment and playgroup classes. </p>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a href=<%= courses_path %> class="btn btn-outline-primary btn-md">Find a Course</a>
+        <a href=<%= centres_path %> class="float-right btn btn-outline-primary btn-md">Find a Centre</a>
       </div>
-    </section>
-
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/popper.js/umd/popper.min.js"> </script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-  
-  </body>
-</html>
+      <div class="col-lg-6 mx-auto">       
+        <p><%= image_tag('tuition.jpg') %></p>
+      </div>
+    </div>
+  </div>
+</section>
