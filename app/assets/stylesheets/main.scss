@@ -108,6 +108,12 @@ body {
     border-style: none;
     display: flex;
     margin: 3em auto 1em;
+		transition: all ease-in .3s
+}
+
+.button-submit:hover {
+	background-color: #3fe2cf;
+	transition: all ease-in .3s
 }
 
 #centre_location {
