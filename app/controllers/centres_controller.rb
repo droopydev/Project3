@@ -1,5 +1,6 @@
 class CentresController < ApplicationController
-    before_action :authenticate_user!, :except => [:homepage, :error, :index, :show]
+
+    before_action :authenticate_user!, :except => [:homepage, :error]
 
     def homepage
     end
@@ -10,21 +11,13 @@ class CentresController < ApplicationController
     end
     
     def index
-        if user_signed_in?
-            @centres = Centre.where(user_id: current_user.id)
-        else
-            @centres = Centre.all
-        end
+        @centres = Centre.where(user_id: current_user.id)
     end
-    
+  
     def show
-        if user_signed_in?
-            @centre = Centre.find(params[:id])
-            if @centre.user_id != current_user.id
-                redirect_to error_path
-            end
-        else
-            @centre = Centre.find(params[:id])
+        @centre = Centre.find(params[:id])
+        if @centre.user_id != current_user.id
+            redirect_to error_path
         end
     end
   

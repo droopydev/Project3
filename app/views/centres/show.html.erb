@@ -10,18 +10,13 @@
 <%= @centre.contact_no%>
 <p>Description:</p>
 <%= @centre.description%>
-<p>Offered @ </p>
+
 <% @centre.courses.each do |course| %>
     <%= link_to course.course_name, course_path(course), class: "btn btn-info"%>
 <% end %>
 <br>
 
-<p>
-<% if user_signed_in? %>
-    <%= link_to 'Edit', edit_centre_path %>
-    <%= link_to 'Back', dashboard_path %>
-    
-<% else %>
-    <%= link_to 'Back', centres_path %>
-<% end %>
-</p>
+
+<%= link_to 'Edit', edit_centre_path %>
+
+<%= link_to 'Back', dashboard_path %>

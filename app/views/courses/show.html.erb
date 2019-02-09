@@ -14,18 +14,11 @@
 
 
 
-
 <% @course.centres.each do |centre| %>
     <%= link_to centre.centre_name, centre_path(centre), class: "btn btn-info"%>
 <% end %>
 <br>
 
-<p>
-<% if user_signed_in? %>
+
 <%= link_to 'Edit', edit_course_path %>
 <%= link_to 'Back', dashboard_path %>
-
-<% else %>
-<%= link_to 'Back', courses_path %>
-<% end %>
-</p>

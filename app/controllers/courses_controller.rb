@@ -1,11 +1,8 @@
 class CoursesController < ApplicationController
-    before_action :authenticate_user!, :except => [:index, :show]
+    before_action :authenticate_user!
     def index
-        if user_signed_in?
-            @courses = Course.where(user_id: current_user.id)
-        else
-            @courses = Course.all
-        end
+        @courses = Course.where(user_id: current_user.id)
+
     end
 
     def new
@@ -14,15 +11,10 @@ class CoursesController < ApplicationController
     end
     
     def show
-        if user_signed_in?
-            @course = Course.find(params[:id])
-            @centres = Centre.where(user_id: current_user.id)
-            if @course.user_id != current_user.id
-                redirect_to error_path
-            end
-
-        else
-            @course = Course.find(params[:id])
+        @course = Course.find(params[:id])
+        @centres = Centre.where(user_id: current_user.id)
+        if @course.user_id != current_user.id
+            redirect_to error_path
         end
     end
 

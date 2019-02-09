@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Clients::SessionsController < Devise::SessionsController
-  include Accessible
-  skip_before_action :check_user, only: :destroy
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -11,11 +9,10 @@ class Clients::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  def create
-    # @error = 'hi'
-    # render 'centres/home'
-    super
-  end
+  # def create
+  #   super
+  #  redirect_to @parents_path
+  # end
 
   # DELETE /resource/sign_out
   # def destroy
