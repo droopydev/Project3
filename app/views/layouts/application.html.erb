@@ -120,14 +120,11 @@
           <h2>Hello Centre Admins</h2>
 
             <%= form_for(:user, :url => session_path(:user)) do |f| %>
-              <% if @user %>
-              <div class="alert alert-primary" role="alert">
-              <%- flash.each do |name, msg| -%>
-                
-                <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+                <%- flash.each do |name, msg| -%>
+                  
+                  <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
 
-              <%- end -%>
-              
+                <%- end -%>
              
               <div class="field">
                 <%= f.label :email %><br />
@@ -205,12 +202,6 @@
                 <%= f.password_field :password, autocomplete: "new-password" %>
               </div>
 
-              <div class="field">
-                <%= f.label :password_confirmation %><br />
-                <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-              </div>
-              <br />
-
               <div class="actions">
                 <%= f.submit "Sign up" %>
               </div>
@@ -228,12 +219,11 @@
           <h2>Welcome Centre Admins</h2>
 
             <%= form_for(:user, :url => registration_path(:user)) do |f| %>
-              <div class="alert alert-primary" role="alert">
+            
               <%- flash.each do |name, msg| -%>
-                
                 <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+              <%- end -%>
 
-              <%- end -%>  
               
               <div class="field">
                 <%= f.label :email %><br />
@@ -247,12 +237,6 @@
                 <% end %><br />
                 <%= f.password_field :password, autocomplete: "new-password" %>
               </div>
-
-              <div class="field">
-                <%= f.label :password_confirmation %><br />
-                <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-              </div>
-              <br />
 
               <div class="actions">
                 <%= f.submit "Sign up" %>
@@ -317,18 +301,12 @@
 				</ul>
 			</div>
       <div class="content">
-      <% if @error === "hi"%>
-              <p>hi xD</p>
-      <% end %>
 				<%= yield %>
 			</div>
 		</div>
 
   <% else %>
-  <% if @error === "hi"%>
-  <p>hi xD</p>
-<% end %>
-		<%= yield %>
+    <%= yield %>
 	<% end %>
 
 
