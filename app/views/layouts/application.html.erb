@@ -33,7 +33,10 @@
 
 	    <span class="navbar-text ml-auto">
 		    <% if client_signed_in? %>
-		    <button type="button" class="btn btn-info"><%= link_to 'Parent Logout', destroy_client_session_url, method: :delete %></button>
+        <button type="button" class="parent-logout">
+          <%= link_to 'Parent Logout', destroy_client_session_url, method: :delete %>
+          <span><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+        </button>
 		    <% end %>
 
 		    <% if user_signed_in? %>
@@ -83,10 +86,13 @@
           <h2>Hello Parents</h2>
 
             <%= form_for(:client, :url => session_path(:client)) do |f| %>
+             
               <%- flash.each do |name, msg| -%>
                 <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
               <%- end -%>
               <%= devise_error_messages! %>
+        
+
               <div class="field">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -116,10 +122,17 @@
           <h2>Hello Centre Admins</h2>
 
             <%= form_for(:user, :url => session_path(:user)) do |f| %>
+              <% if @user %>
+              <div class="alert alert-primary" role="alert">
               <%- flash.each do |name, msg| -%>
+                
                 <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-              <%- end -%>
+                
+              <%- end -%> 
+              </div> 
+              <%end%>
               <%= devise_error_messages! %>
+
 
 
              
@@ -180,7 +193,7 @@
           <h2>Welcome Parents</h2>
 
             <%= form_for(:client, :url => registration_path(:client)) do |f| %>
-
+              
               <%- flash.each do |name, msg| -%>
                 <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
               <%- end -%>
@@ -222,16 +235,20 @@
           <h2>Welcome Centre Admins</h2>
 
             <%= form_for(:user, :url => registration_path(:user)) do |f| %>
+              <div class="alert alert-primary" role="alert">
               <%- flash.each do |name, msg| -%>
+                
                 <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-              <%- end -%>  
+                
+              <%- end -%> 
+              </div> 
               <%= devise_error_messages! %>
-
+            
               <div class="field">
               <%= f.label :company_name %><br />
               <%= f.email_field :company_name, autofocus: true, autocomplete: "company_name" %>
             </div>
-            
+
               <div class="field">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
