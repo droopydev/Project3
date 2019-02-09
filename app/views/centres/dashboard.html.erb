@@ -9,8 +9,6 @@
 </div>
 
 <div class="row">
-  <div class="col-1">
-  </div>
   <div class="col-4">
     <h3>Centres</h3>
   </div>
@@ -20,23 +18,70 @@
 </div>
 
 <% @centres.each do |centre| %>
+	<div class="dashboard-centre-wrapper">
+
+		<div class="dashboard-centre">
+			<div class="card">
+				<a href=<%= centre_path(centre) %>>
+					<% unless centre.avatar_url.nil? %><%= image_tag centre.avatar_url(:display) %><% end %>
+				</a>
+				<div class="card-body">
+			    <h5 class="card-title"><%= centre.centre_name%></h5>
+			    <p class="card-text"><%= centre.description %></p>
+			    <div class="card-icon">
+				    <a href=<%= edit_centre_path(centre) %>>
+				    	<i class="fa fa-pencil" aria-hidden="true"></i>
+				    </a>
+
+				    <%= link_to	('<i class="fa fa-trash" aria-hidden="true"></i>').html_safe, centre_path(centre),
+				    method: :delete,
+				    data: { confirm: 'Are you sure?' } %>
+				  </div>
+				</div>
+			</div>
+		</div>
+
+		<div class="dashboard-course">
+			<% centre.courses.each do |course| %>
+			<div class="card">
+				<% unless centre.avatar_url.nil? %><%= image_tag centre.avatar_url(:display) %><% end %>
+				<div class="card-body">
+			    <h5 class="card-title"><%= course.course_name%></h5>
+			    <p class="card-text"><%= course.description %></p>
+				</div>
+			</div>
+			<% end %>
+		</div>
+
+</div>
+<% end %>
+
+
+
+
+
+
+
+
+
+<!--
+<% @centres.each do |centre| %>
 <div class="row paddingbot">
-  <div class="col-1">
-  </div>
+
   <div class="col-4 bg-secondary">
   <div class="card" style="width: 25rem;">
-    <% unless centre.avatar_url.nil? %><%= image_tag centre.avatar_url(:display) %><% end %> 
+    <% unless centre.avatar_url.nil? %><%= image_tag centre.avatar_url(:display) %><% end %>
     <div class="card-body" ">
-    <h5 class="card-title"><%= centre.centre_name%></h5>
-    <p class="card-text"><%= centre.description %></p>
-    <a href=<%= centre_path(centre) %> class="btn btn-info">Preview</a>
-    <a href=<%= edit_centre_path(centre) %> class="btn btn-warning">Edit</a>
-    <%= link_to 'Delete', centre_path(centre),
-    method: :delete,
-    data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>     
+	    <h5 class="card-title"><%= centre.centre_name%></h5>
+	    <p class="card-text"><%= centre.description %></p>
+	    <a href=<%= centre_path(centre) %> class="btn btn-info">Preview</a>
+	    <a href=<%= edit_centre_path(centre) %> class="btn btn-warning">Edit</a>
+	    <%= link_to 'Delete', centre_path(centre),
+	    method: :delete,
+	    data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
     </div>
   </div>
-  
+
   </div>
   <div class="col-6 bg-secondary">
   <% centre.courses.each do |course| %>
@@ -48,12 +93,13 @@
     <a href=<%= course_path(course) %> class="btn btn-info">Preview</a>
     <a href=<%= edit_course_path(course) %> class="btn btn-warning">Edit</a>
     <%= link_to 'Remove from Course', remove_course_path(centre, course), method: :patch,
-    data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>    
+    data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
     </div>
     </div>
     </div>
-    
+
     <% end %>
   </div>
 </div>
 <% end %>
+ -->
