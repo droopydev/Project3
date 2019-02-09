@@ -1,7 +1,7 @@
 
 <% if @course.errors.any? %>
 <div class="alert alert-danger">
-  <strong>Oh no!</strong>  
+  <strong>Oh no!</strong>
   <%= @course.errors.full_messages.join("; ")  %>
 </div>
 <% end %>
@@ -18,11 +18,11 @@
 			    </li>
 			    <li>
 						<%= label_tag(:age, "Age") %>
-					    <%= form.select(:age, options_for_select([['3-5 years old'], ['6-10 years old'], ['11-13 years old']]), {:prompt => 'Select Age Group'}, :class => "input-dropdown" ) %>
+					  <%= form.select(:age, options_for_select([['3-5 years old'], ['6-10 years old'], ['11-13 years old']]), {:prompt => 'Select Age Group'}, :class => "input-dropdown" ) %>
 			    </li>
 			    <li>
-			    	<%= label_tag(:category, "Category") %>
-			    	<%= form.text_field :category %>
+						<%= label_tag(:location, "Category") %>
+				    <%= form.select(:category, options_for_select([['Language'], ['Music'], ['Culture'], ['Science']]), {:prompt => 'Select Category'}, :class => "input-dropdown" ) %>
 			    </li>
 			    <li>
 			    	<%=	label_tag(:credits, "Credits") %>

@@ -1,6 +1,6 @@
 <% if @centre.errors.any? %>
 <div class="alert alert-danger">
-  <strong>Oh no!</strong>  
+  <strong>Oh no!</strong>
   <%= @centre.errors.full_messages.join("; ")  %>
 </div>
 <% end %>
@@ -16,7 +16,7 @@
 
   <p>
       Business Registration No.
-      <%= form.text_field :reg_no, :value => @centre.reg_no %, :required => true %>
+      <%= form.text_field :reg_no, :value => @centre.reg_no , :required => true %>
     </p>
     <p>
       Contact No

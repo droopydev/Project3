@@ -5,11 +5,14 @@ class ParentsController < ApplicationController
   # GET /parents.json
   def index
     @parents = Parent.all
+    @courses = Course.all
+
   end
 
   # GET /parents/1
   # GET /parents/1.json
   def show
+    
   end
 
   # GET /parents/new
