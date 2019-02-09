@@ -90,8 +90,6 @@
               <%- flash.each do |name, msg| -%>
                 <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
               <%- end -%>
-              <%= devise_error_messages! %>
-        
 
               <div class="field">
                 <%= f.label :email %><br />
@@ -127,14 +125,9 @@
               <%- flash.each do |name, msg| -%>
                 
                 <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-                
-              <%- end -%> 
-              </div> 
-              <%end%>
-              <%= devise_error_messages! %>
 
-
-
+              <%- end -%>
+              
              
               <div class="field">
                 <%= f.label :email %><br />
@@ -197,7 +190,7 @@
               <%- flash.each do |name, msg| -%>
                 <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
               <%- end -%>
-              <%= devise_error_messages! %>
+              
 
               <div class="field">
                 <%= f.label :email %><br />
@@ -239,16 +232,9 @@
               <%- flash.each do |name, msg| -%>
                 
                 <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-                
-              <%- end -%> 
-              </div> 
-              <%= devise_error_messages! %>
-            
-              <div class="field">
-              <%= f.label :company_name %><br />
-              <%= f.email_field :company_name, autofocus: true, autocomplete: "company_name" %>
-            </div>
 
+              <%- end -%>  
+              
               <div class="field">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -330,12 +316,18 @@
 					</li>
 				</ul>
 			</div>
-			<div class="content">
+      <div class="content">
+      <% if @error === "hi"%>
+              <p>hi xD</p>
+      <% end %>
 				<%= yield %>
 			</div>
 		</div>
 
-	<% else %>
+  <% else %>
+  <% if @error === "hi"%>
+  <p>hi xD</p>
+<% end %>
 		<%= yield %>
 	<% end %>
 
