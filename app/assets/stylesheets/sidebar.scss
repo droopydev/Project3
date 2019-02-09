@@ -4,13 +4,21 @@
 }
 
 .sidebar {
+	position: fixed;
+	overflow-x: hidden;
 	background-color: #59616A;
 	color: white;
-	width: 250px;
-	height: 800px;
+	width: 200px;
+	height: 100vh;
+	z-index: 999;
 	font-weight: 400;
 	font-family: 'Quicksand', sans-serif;
 	box-shadow: 0 2px 15px 0 rgba(43,43,43,.2)
+}
+
+.content {
+	width: 100%;
+	margin-left: 200px;
 }
 
 .sidebar ul {
@@ -62,10 +70,6 @@
 	color:#38C9B8;
 }
 
-
-.content {
-	width: 100%;
-}
 
 .sidebar h1 {
 	margin: 30px 0 10px 20px;
