@@ -1,52 +1,64 @@
 <div class="row">
 
-<div class="col">
-Course Information
+<div class="col-5">
 
-<% unless @course.avatar_url.nil? %><%= image_tag @course.avatar_url(:display) %><br /><% end %>
-
-<p>Course Name: </p>
-<%= @course.course_name %><br>
-<p>Description: </p>
-<%= @course.description %><br>
-<p>Age: </p>
-<%= @course.age %><br>
-<p>Category: </p>
-<%= @course.category %><br>
-<p>Credits: </p>
-<%= @course.credits %><br>
-
-<% @centres.each do |centre| %>
-<p>Offered @ </p>
+<div class="preview_info">
+<h4><i class="fa fa-bookmark" aria-hidden="true"></i> Course Information for <%= @course.course_name %> </h4>
+<br/>
+<p>Offered @ 
 <% @course.centres.each do |centre| %>
     <%= link_to centre.centre_name, centre_path(centre), class: "btn btn-info"%>
-<% end %>
-<br>
-<% end %>
+<% end %> </p>
 
 <p>
+
+<p>Description: 
+<%= @course.description %></p>
+<p>Age: 
+<%= @course.age %></p>
+<p>Category: 
+<%= @course.category %></p>
+<p>Credits: 
+<%= @course.credits %></p>
+
+<br/><br/>
+
 <% if user_signed_in? %>
-    <%= link_to 'Edit', edit_course_path %>
+    <%= link_to 'Edit', edit_course_path %> |
     <%= link_to 'Back', dashboard_path %>
 <% else %>
     <%= link_to 'Back', courses_path %>
 <% end %>
 </p>
-
-</div>
-<div class="col">
-Preview of how it looks on the site:
-
-<div class="card" style="width: 18rem;">
-<% unless @course.avatar_url.nil? %><img class="card-img-top" src=<%= image_tag @course.avatar_url(:display) %> alt="Card image cap"><br /><% end %>
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
 </div>
 
 </div>
+
+<% if user_signed_in? %>
+<div class="col-6 preview_card">
+
+<h4><i class="fa fa-eye" aria-hidden="true"></i> Preview of how it looks on the site</h4>
+
+    <div class="card" style="width: 15rem;">
+      
+        <% unless @course.avatar_url.nil? %><img class="card-img-top" src="<%= @course.avatar %>" alt="Card image cap"><% end %>
+        <div class="card-body">
+            <b><h5 class="card-title"><%= @course.course_name %></h5></b>
+            <p class="card-text"><%= @course.description %></p>
+        </div>
+        <div class="card-body">
+            <span class="card-text"><%= @course.credits %> credits</span>
+            <span class="card-text float-right"><%= @course.category %></span>
+        </div>
+
+    </div> 
+
+</div>
+<%else%>
+    <div class="col-7">
+    <div class="preview_card_bg"><% unless @course.avatar_url.nil? %><%= image_tag @course.avatar_url(:display)%><br /><% end %></div>
+    </div>
+<%end%>
 
 </div>
 
