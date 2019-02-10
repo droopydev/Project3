@@ -1,0 +1,11 @@
+<h1>Application Form</h1>
+<% unless centre.avatar_url.nil? %><%= image_tag @course.centre.avatar_url(:display) %><% end %>
+Apply for <%= @course.course_name %>
+<%= @course.course_name %>
+
+<%= form_with scope: :cart, url: carts_path, local: true do |form| %>
+    <%= select_tag "centre", options_from_collection_for_select(@course.centres, "id", "centre_name"), prompt: "Select Centre" %>
+    <%= form.submit(:class => "button-submit", :value => "Add to Cart") %>
+<% end %>
+
+<%= link_to courses_path %>
