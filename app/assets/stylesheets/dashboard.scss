@@ -19,7 +19,7 @@
 .dashboard-course {
 	display: flex;
 	flex-direction: row;
-	background-color: yellow;
+	background-color: #cbede0;
 	flex-grow: 1;
 	// width:70%;
 	padding: 20px;
@@ -27,9 +27,15 @@
 }
 
 .card {
+  box-shadow: 0 0 1px 2px rgba(0,0,0,.05), 0 -2px 1px -2px rgba(0,0,0,.04), 0 0 0 -1px rgba(0,0,0,.05);
 	float:left;
 	width: 240px;
 	height: 270px;
+}
+
+.card:hover {
+  box-shadow: 0 0 25px -5px #9e9c9e;
+  transition: all 180ms linear;
 }
 
 .card img {
