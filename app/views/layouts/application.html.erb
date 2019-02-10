@@ -24,7 +24,7 @@
 		  </button>
 
 			<% if client_signed_in? %>
-			  <a class="navbar-brand" href="/">StudyPass</a>
+			  <a class="navbar-brand" href="/overview">StudyPass</a>
 			<% elsif user_signed_in? %>
 			  <a class="navbar-brand" href="/dashboard">StudyPass</a>
 			<% else %>
@@ -304,7 +304,6 @@
 				<%= yield %>
 			</div>
 		</div>
-
   <% else %>
     <%= yield %>
 	<% end %>

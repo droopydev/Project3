@@ -4,6 +4,7 @@ class CreateParents < ActiveRecord::Migration[5.2]
       t.string :salutation
       t.string :name
       t.integer :contact_no
+      t.references :client
 
       t.timestamps
     end
