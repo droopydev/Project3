@@ -1,3 +1,5 @@
+
+
 .dashboard-centre-wrapper {
 	display: flex;
 	flex-direction: row;
@@ -6,32 +8,66 @@
 }
 
 .dashboard-centre {
-	display: flex;
-	flex-direction: row;
+	// display: flex;
+	// flex-direction: row;
 	background-color: white;
-	overflow: auto;
+	// overflow: auto;
 	padding: 20px;
 	margin:0;
 	border-radius: 5px 0 0 5px;
 	justify-content: center;
+	// display: relative;
+	// width: 280px;
 }
 
 .dashboard-course {
-	display: flex;
-	flex-direction: row;
-	background-color: yellow;
-	flex-grow: 1;
-	// width:70%;
+	background-color: #cbede0;
+	width: 100%;
 	padding: 20px;
 	margin:0;
 }
 
 .card {
+  box-shadow: 0 0 1px 2px rgba(0,0,0,.05), 0 -2px 1px -2px rgba(0,0,0,.04), 0 0 0 -1px rgba(0,0,0,.05);
 	float:left;
-	width: 240px;
-	height: 270px;
+  width: 210px;
+  height: 240px;
+  margin: 10px;
+
+}
+
+.card:hover {
+  box-shadow: 0 0 25px -5px #9e9c9e;
+  transition: all 180ms linear;
 }
 
 .card img {
+	border-radius: 3px 3px 0 0;
 	width: 100%;
+}
+
+.card-body {
+	display: flex;
+	flex-direction: column;
+}
+
+.card-body-bottom {
+	width: 100%;
+}
+
+.card-icon {
+	float:right;
+}
+
+.card-icon a{
+	padding-left: 5px;
+	color: #4e565f;
+}
+
+.card-icon a:hover {
+	color: #38C9B8;
+}
+
+.card-course {
+	// margin: 10px;
 }

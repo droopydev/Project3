@@ -1,12 +1,16 @@
-
+<!--
 <div class style="margin: 2rem">
 <h1><%= current_user.company_name %>'s Dashboard</h1>
-<br/>
 <a href=<%= centres_path %> class="btn btn-info">All Centres</a>
 <a href=<%= courses_path %> class="btn btn-info">All Courses</a>
 <a href=<%= new_centre_path %> class="btn btn-dark">+ Add Centre</a>
 <a href=<%= new_course_path %> class="btn btn-dark">+ Add Course</a>
 </div>
+ -->
+	<div class="title">
+		<span><i class="fa fa-columns head-icon" aria-hidden="true"></i></span>
+		<span><h1><%= current_user.company_name %>'s Dashboard</h1>
+	</div>
 
 <div class="row">
   <div class="col-4">
@@ -27,27 +31,42 @@
 				</a>
 				<div class="card-body">
 			    <h5 class="card-title"><%= centre.centre_name%></h5>
-			    <p class="card-text"><%= centre.description %></p>
-			    <div class="card-icon">
-				    <a href=<%= edit_centre_path(centre) %>>
+			    <div class="card-body-bottom">
+			    	<span class="card-location">
+			    		<%= centre.location%>
+			    	</span>
+				    <span class="card-icon">
+					    <a href=<%= edit_centre_path(centre) %>>
 				    	<i class="fa fa-pencil" aria-hidden="true"></i>
-				    </a>
+					    </a>
 
-				    <%= link_to	('<i class="fa fa-trash" aria-hidden="true"></i>').html_safe, centre_path(centre),
-				    method: :delete,
-				    data: { confirm: 'Are you sure?' } %>
-				  </div>
+					    <%= link_to	('<i class="fa fa-trash" aria-hidden="true"></i>').html_safe, centre_path(centre),
+					    method: :delete,
+					    data: { confirm: 'Are you sure?' } %>
+					  </span>
+					</div>
 				</div>
 			</div>
 		</div>
 
 		<div class="dashboard-course">
 			<% centre.courses.each do |course| %>
-			<div class="card">
-				<% unless centre.avatar_url.nil? %><%= image_tag centre.avatar_url(:display) %><% end %>
+			<div class="card card-course">
+				<% unless course.avatar_url.nil? %><%= image_tag course.avatar_url(:display) %><% end %>
 				<div class="card-body">
 			    <h5 class="card-title"><%= course.course_name%></h5>
-			    <p class="card-text"><%= course.description %></p>
+			    <div class="card-body-bottom">
+			    	<span class="card-location">
+			    		<%= centre.location%>
+			    	</span>
+				    <span class="card-icon">
+					    <a href=<%= edit_course_path(course) %>>
+				    	<i class="fa fa-pencil" aria-hidden="true"></i>
+					    </a>
+
+			        <%= link_to ('<i class="fa fa-trash" aria-hidden="true"></i>').html_safe, remove_course_path(centre, course), method: :patch, data: { confirm: 'Are you sure?' } %>
+					  </span>
+					</div>
 				</div>
 			</div>
 			<% end %>
