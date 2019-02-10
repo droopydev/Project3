@@ -1,5 +1,7 @@
 class CoursesController < ApplicationController
-    before_action :authenticate_user!, :except => [:index, :show]
+    before_action :authenticate_user!, :except => [:index, :show, :apply, :applycreate]
+    before_action :authenticate_client!, :only => [:apply, :applycreate]
+
     def index
         if user_signed_in?
             @courses = Course.where(user_id: current_user.id)
@@ -63,9 +65,23 @@ class CoursesController < ApplicationController
         redirect_to courses_path
     end
 
-   
+    def apply
+        @course = Course.find(params[:id]) 
+    end
+ 
+    def applycreate
+        @cart = Cart.new
+        @cart.course_id = Course.find(params[:id])
+        @cart.parent_id = current_client.id
+        byebug
+    end
+
     private
     def course_params
         params.require(:course).permit(:course_name, :description, :age, :category, :credits, :avatar, :centre_ids => [])
+    end
+
+    def cart_params
+        params.require(:cart)
     end
 end
