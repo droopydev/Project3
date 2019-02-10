@@ -1,9 +1,14 @@
 .card {
   margin: 1rem;
+  height: 400px;
+}
+
+.card-img-top {
+  height: 150px;
 }
 
 .div1 {
-  padding: 5px;
+  padding: 15px;
   margin: 3rem;
   border: none;
   border-radius: 15px;
@@ -17,23 +22,4 @@
   font-family: quicksand, sans-serif;
   width: 150px;
   height: 500px;
-}
-
-.parent-logout {
-  background-color: #38c9b8;
-  color: white;
-  padding: 5px 1em;
-  border-radius: 3px;
-  border-style: none;
-  display: flex;
-}
-
-.parent-logout a {
-  text-decoration: none;
-  color: white !important;
-  font-size: 14px;
-}
-
-.parent-logout .fa {
-  padding-left: 10px;
 }

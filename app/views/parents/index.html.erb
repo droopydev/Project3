@@ -1,13 +1,12 @@
 
-
+<% if notice != nil %>
 <div class="alert alert-info alert-dismissible fade show" role="alert">
   <strong><p id="notice"><%= notice %></p></strong>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-
-
+<%end%>
 
 <div class="row">
     <div class="col-3 div1">
@@ -20,12 +19,9 @@
       
       <table>   
         <tbody>
-        
             <tr><td>Salutation: <%= @parent.salutation %></td></tr>
             <tr><td>Name: <%= @parent.name %></td></tr>
-            <tr><td>Contact: <%= @parent.contact_no %></td></tr>
-          
-        
+            <tr><td>Contact: <%= @parent.contact_no %></td></tr>      
         </tbody>
         
       </table>
@@ -33,19 +29,18 @@
     </div>
     <div class="col-7 div2">
     <br/>
+    <h3><b><i class="fa fa-book" aria-hidden="true"></i></b> Open Courses </h3>
 
     <div class="row">
 
-      <h3><b>Current Available Courses</b></h3>
-      
       <% @courses.each do |course| %>
-      <div class="col-5">
+      <div class="col-4">
       <div class="card" style="width: 14rem;">
       
       <img class="card-img-top" src="<%= course.avatar %>" alt="Card image cap">
       <div class="card-body">
         
-        <h5 class="card-title"><%= course.course_name %></h5>
+        <b><h5 class="card-title"><%= course.course_name %></h5></b>
         <p class="card-text"><%= course.description %></p>
       </div>
       <div class="card-body">
@@ -57,9 +52,6 @@
       <% end %>
        
       </div>      
-
-
-
 
     </div>
     </div>
