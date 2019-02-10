@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  devise_for :clients, path: 'clients', controllers: {sessions: "clients/sessions", registrations: "clients/registrations"}
+  devise_for :clients, controllers: {sessions: "clients/sessions", registrations: "clients/registrations"}
 
   devise_scope :client do
     get "/client/sign_in" => "clients/sessions#new"  # custom path to login/sign_in
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   patch '/centres/:id' => 'centres#update'
   delete '/centres/:id' => 'centres#destroy', as: 'delete_centre'
   
-
+  
   # courses path
   get '/courses' => 'courses#index', as: 'courses'
   get '/courses/new' => 'courses#new', as: 'new_course'
@@ -36,8 +36,13 @@ Rails.application.routes.draw do
   get '/courses/:id/edit' => 'courses#edit', as: 'edit_course'
   patch '/courses/:id' => 'courses#update'
   delete '/courses/:id' => 'courses#destroy', as: 'delete_course'
-
+  get '/courses/:id/apply' => 'courses#apply', as: 'apply_course'
+  post '/courses/:id' => 'courses#applycreate'
   
-  resources :parents
+  # parents path
   get '/overview' => 'parents#index', as: 'overview'
+  resources :parents
+
+  # carts path
+
 end
