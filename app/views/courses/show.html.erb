@@ -1,3 +1,8 @@
+<div class="row">
+
+<div class="col">
+Course Information
+
 <% unless @course.avatar_url.nil? %><%= image_tag @course.avatar_url(:display) %><br /><% end %>
 
 <p>Course Name: </p>
@@ -10,22 +15,39 @@
 <%= @course.category %><br>
 <p>Credits: </p>
 <%= @course.credits %><br>
+
+<% @centres.each do |centre| %>
 <p>Offered @ </p>
-
-
-
-
 <% @course.centres.each do |centre| %>
     <%= link_to centre.centre_name, centre_path(centre), class: "btn btn-info"%>
 <% end %>
 <br>
+<% end %>
 
 <p>
 <% if user_signed_in? %>
-<%= link_to 'Edit', edit_course_path %>
-<%= link_to 'Back', dashboard_path %>
-
+    <%= link_to 'Edit', edit_course_path %>
+    <%= link_to 'Back', dashboard_path %>
 <% else %>
-<%= link_to 'Back', courses_path %>
+    <%= link_to 'Back', courses_path %>
 <% end %>
 </p>
+
+</div>
+<div class="col">
+Preview of how it looks on the site:
+
+<div class="card" style="width: 18rem;">
+<% unless @course.avatar_url.nil? %><img class="card-img-top" src=<%= image_tag @course.avatar_url(:display) %> alt="Card image cap"><br /><% end %>
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+
