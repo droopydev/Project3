@@ -2,7 +2,7 @@
 
 <div class="col-5">
 
-<div class="preview_info">
+<div class="preview_info full-border">
 <h4><i class="fa fa-bookmark" aria-hidden="true"></i> <%= @centre.centre_name%> <br/>(Registration No:
 <%= @centre.reg_no%>)</h4> <br/>
 
@@ -25,7 +25,7 @@
     <%= link_to 'Back', dashboard_path %>
     
 <% else %>
-    <%= link_to 'Back', centres_path %>
+    <i class="fa fa-chevron-left" aria-hidden="true"></i> <%= link_to 'Back', centres_path %>
 <% end %>
 </p>
 </div>
