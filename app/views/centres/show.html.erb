@@ -1,27 +1,39 @@
-<% unless @centre.avatar_url.nil? %><%= image_tag @centre.avatar_url(:display) %><br /><% end %>
+<div class="row">
 
-<p>Centre Name:</p>
-<%= @centre.centre_name%>
-<p>Registration No:</p>
-<%= @centre.reg_no%>
-<p>Location:</p>
-<%= @centre.location%>
-<p>Contact No:</p>
-<%= @centre.contact_no%>
-<p>Description:</p>
-<%= @centre.description%>
-<p>Offered @ </p>
+<div class="col-5">
+
+<div class="preview_info">
+<h4><i class="fa fa-bookmark" aria-hidden="true"></i> <%= @centre.centre_name%> <br/>(Registration No:
+<%= @centre.reg_no%>)</h4> <br/>
+
+<p> What are the offered courses? <br/><br/> 
 <% @centre.courses.each do |course| %>
     <%= link_to course.course_name, course_path(course), class: "btn btn-info"%>
-<% end %>
+<% end %></p>
+
+<p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @centre.location%></p>
+<p><i class="fa fa-phone" aria-hidden="true"></i>
+<%= @centre.contact_no%></p>
+<p><u>Description</u><br/>
+<%= @centre.description%></p>
+
 <br>
 
 <p>
 <% if user_signed_in? %>
-    <%= link_to 'Edit', edit_centre_path %>
+    <%= link_to 'Edit', edit_centre_path %> |
     <%= link_to 'Back', dashboard_path %>
     
 <% else %>
     <%= link_to 'Back', centres_path %>
 <% end %>
 </p>
+</div>
+
+</div>
+
+<div class="col-7">
+    <div class="preview_card_bg"><% unless @centre.avatar_url.nil? %><%= image_tag @centre.avatar_url(:display)%><br /><% end %></div>
+</div>
+
+</div>
