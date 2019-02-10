@@ -1,10 +1,22 @@
-
+.title {
+	display: inline-flex;
+	    margin: 38px;
+}
 
 .dashboard-centre-wrapper {
 	display: flex;
 	flex-direction: row;
 	margin:	2em;
 	box-shadow: 0 0 5px 0 rgba(43,43,43,.1), 0 11px 6px -7px rgba(43,43,43,.1);
+}
+
+.dashboard-home-icon-bg {
+  background-color: #38c9b8;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .dashboard-centre {
