@@ -66,8 +66,10 @@ ActiveRecord::Schema.define(version: 2019_02_05_121803) do
     t.string "salutation"
     t.string "name"
     t.integer "contact_no"
+    t.bigint "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_parents_on_client_id"
   end
 
   create_table "users", force: :cascade do |t|

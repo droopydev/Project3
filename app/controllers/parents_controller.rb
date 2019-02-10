@@ -1,33 +1,36 @@
 class ParentsController < ApplicationController
-  before_action :set_parent, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_client!
 
-  # GET /parents
-  # GET /parents.json
   def index
-    @parents = Parent.all
+    @parent = Parent.where(client_id: current_client.id)[0]
     @courses = Course.all
+    if @parent.blank?
+      redirect_to new_parent_path
+    end
 
   end
 
-  # GET /parents/1
-  # GET /parents/1.json
-  def show
-    
-  end
-
-  # GET /parents/new
   def new
     @parent = Parent.new
   end
 
-  # GET /parents/1/edit
-  def edit
+  def show
+    @parent = set_parent
+    if @parent.client_id != current_client.id
+      redirect_to error_path
+    end
   end
 
-  # POST /parents
-  # POST /parents.json
+  def edit
+    @parent = set_parent
+    if @parent.client_id != current_client.id
+      redirect_to error_path
+    end
+  end
+
   def create
     @parent = Parent.new(parent_params)
+    @parent.client_id = current_client.id
 
     respond_to do |format|
       if @parent.save
@@ -57,20 +60,13 @@ class ParentsController < ApplicationController
   # DELETE /parents/1
   # DELETE /parents/1.json
   def destroy
-    @parent.destroy
-    respond_to do |format|
-      format.html { redirect_to parents_url, notice: 'Parent was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_parent
       @parent = Parent.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def parent_params
       params.require(:parent).permit(:salutation, :name, :contact_no)
     end
