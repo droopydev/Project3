@@ -1,0 +1,8 @@
+<h1>My Cart</h1>
+
+
+<% @carts.each_with_index do |item, index| %>
+    Index: <%= index+1 %><br>
+    Centre: <%= @centres.find_by(id: item.centre_id).centre_name %><br>
+    Class: <%= @courses.find_by(id: item.course_id).course_name %><br>
+<% end %>

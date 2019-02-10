@@ -70,10 +70,13 @@ class CoursesController < ApplicationController
     end
  
     def applycreate
-        @cart = Cart.new
-        @cart.course_id = Course.find(params[:id])
-        @cart.parent_id = current_client.id
-        byebug
+        @cart = Cart.new(cart_params)
+        @cart.course_id = params[:id]
+        parent_id = Parent.find_by(client_id: current_client.id).id
+        @cart.parent_id = parent_id
+        @cart.save
+        
+        redirect_to carts_path
     end
 
     private
@@ -82,6 +85,6 @@ class CoursesController < ApplicationController
     end
 
     def cart_params
-        params.require(:cart)
+        params.permit(:centre_id)
     end
 end
