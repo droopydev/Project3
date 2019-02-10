@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
           if resource.is_a?(User) 
                '/dashboard'
           else
-               '/parents'
+               '/overview'
           end
    end
 

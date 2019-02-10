@@ -24,7 +24,7 @@
 		  </button>
 
 			<% if client_signed_in? %>
-			  <a class="navbar-brand" href="/">StudyPass</a>
+			  <a class="navbar-brand" href="/overview">StudyPass</a>
 			<% elsif user_signed_in? %>
 			  <a class="navbar-brand" href="/dashboard">StudyPass</a>
 			<% else %>
@@ -47,11 +47,13 @@
 		    <% end %>
 
 		    <% if !user_signed_in? && !client_signed_in? %>
-		    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-		      Login
+		    <button type="button" class="login" data-toggle="modal" data-target="#exampleModal">
+          Login
+          <span><i class="fa fa-sign-in" aria-hidden="true"></i></span>
 		    </button>
-		    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
-		      Sign Up
+		    <button type="button" class="signup" data-toggle="modal" data-target="#exampleModal1">
+          Sign Up
+          <span><i class="fa fa-user-plus" aria-hidden="true"></i></span>
 		    </button>
 		    <% end %>
 	    </span>
@@ -304,7 +306,6 @@
 				<%= yield %>
 			</div>
 		</div>
-
   <% else %>
     <%= yield %>
 	<% end %>

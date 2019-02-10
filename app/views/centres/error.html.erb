@@ -1,3 +1,9 @@
 <h1>Access Restricted</h1>
 
-<%= link_to 'Back', dashboard_path %>
+<% if user_signed_in? %>
+    <%= link_to 'Back', dashboard_path %>
+<% elsif client_signed_in? %>
+    <%= link_to 'Back', overview_path %>
+<% else %>
+    <%= link_to 'Back', root_path %>
+<% end %>
