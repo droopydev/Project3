@@ -28,15 +28,20 @@
 				<div class="card-body">
 			    <h5 class="card-title"><%= centre.centre_name%></h5>
 			    <p class="card-text"><%= centre.description %></p>
-			    <div class="card-icon">
-				    <a href=<%= edit_centre_path(centre) %>>
+			    <div class="card-body-bottom">
+			    	<span class="card-location">
+			    		<%= centre.location%>
+			    	</span>
+				    <span class="card-icon">
+					    <a href=<%= edit_centre_path(centre) %>>
 				    	<i class="fa fa-pencil" aria-hidden="true"></i>
-				    </a>
+					    </a>
 
-				    <%= link_to	('<i class="fa fa-trash" aria-hidden="true"></i>').html_safe, centre_path(centre),
-				    method: :delete,
-				    data: { confirm: 'Are you sure?' } %>
-				  </div>
+					    <%= link_to	('<i class="fa fa-trash" aria-hidden="true"></i>').html_safe, centre_path(centre),
+					    method: :delete,
+					    data: { confirm: 'Are you sure?' } %>
+					  </span>
+					</div>
 				</div>
 			</div>
 		</div>
