@@ -39,7 +39,10 @@ Rails.application.routes.draw do
   get '/courses/:id/apply' => 'courses#apply', as: 'apply_course'
   post '/courses/:id' => 'courses#applycreate'
   
-  
+  # parents path
   get '/overview' => 'parents#index', as: 'overview'
   resources :parents
+
+  # carts path
+
 end
