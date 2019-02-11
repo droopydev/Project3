@@ -11,10 +11,12 @@
       <h5 class="card-title"><%= centre.centre_name%></h5>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       <a href=<%= centre_path(centre) %> class="btn btn-info">Preview</a>
-      <a href=<%= edit_centre_path(centre) %> class="btn btn-warning">Edit</a>
-      <%= link_to 'Delete', centre_path(centre),
-          method: :delete,
-          data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+      <% if user_signed_in? %>
+        <a href=<%= edit_centre_path(centre) %> class="btn btn-warning">Edit</a>
+        <%= link_to 'Delete', centre_path(centre),
+            method: :delete,
+            data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        <% end %>
     </div>
   </div>
   
