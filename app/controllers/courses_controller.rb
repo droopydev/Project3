@@ -85,6 +85,6 @@ class CoursesController < ApplicationController
     end
 
     def cart_params
-        params.permit(:centre_id)
+        params.require(:cart).permit(:centre_id)
     end
 end
