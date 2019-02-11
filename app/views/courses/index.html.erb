@@ -1,3 +1,7 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "course.js" %>
+<% end %>
+
 <div class="page-header-title">
 	<span><i class="fa fa-pencil-square-o dashboard-home-icon-bg" aria-hidden="true"></i></span>
 	<div class="d-inline">
@@ -5,7 +9,7 @@
 	</div>
 </div>
 
-<!-- <div>
+<div>
   <div class="filtergrp">
     <button class="btn btn-primary openclose" id="filteragebtn">Age Group</button>
     <div class="form-popup" id="filterage">
@@ -23,11 +27,12 @@
           <input class="filtercat" type="checkbox" value='Music'>Music</input><br>
           <input class="filtercat" type="checkbox" value='Culture'>Culture</input><br>
           <input class="filtercat" type="checkbox" value='Science'>Science</input><br>
-          <button id=" filtercatsubmit"class="btn btn-primary">Filter!</button>
+          <button id="filtercatsubmit" class="btn btn-primary">Filter!</button>
       </div>
   </div>
+  <button class="btn btn-info openclose" id="resetfilter">Reset Filter</button>
 </div>
- -->
+
 <% if @courses.empty? %>
   No Courses Found
 
