@@ -25,7 +25,7 @@
     			</li>
     			<li>
 			      <%= label_tag(:location, "Location") %>
-			      <%= form.text_area :location, :value => @centre.location, :required => true %>
+			      <%= form.select(:location, options_for_select([['North'], ['South'], ['East'], ['West']]), :selected=> @centre.location ) %>
 			    </li>
 			    <li class="form-description">
 			      <%= label_tag(:description, "Description", :class => "label-description") %>
