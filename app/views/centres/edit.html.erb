@@ -5,45 +5,46 @@
 </div>
 <% end %>
 
-<h1>Edit Tuition Centre Particulars</h1>
+<div class="form-main-wrapper">
+	<h1>Edit Tuition Centre Particulars</h1>
+		<%= form_with scope: :centre, model: @centre, local: true do |form| %>
+		<div class="form-input-wrapper">
+			<div class="form-right">
+				<ul>
+					<li>
+						<%= label_tag(:centre_name, "Centre Name") %>
+						<%= form.text_field :centre_name, :value => @centre.centre_name, :required => true %>
+				  </li>
+					<li>
+						<%= label_tag(:reg_no, "Registration No.") %>
+      			<%= form.text_field :reg_no, :value => @centre.reg_no , :required => true %>
+					</li>
+    			<li>
+			      <%= label_tag(:contact_no, "Contact No") %>
+			      <%= form.text_field :contact_no, :value => @centre.contact_no, :required => true %>
+    			</li>
+    			<li>
+			      <%= label_tag(:location, "Location") %>
+			      <%= form.text_area :location, :value => @centre.location, :required => true %>
+			    </li>
+			    <li class="form-description">
+			      <%= label_tag(:description, "Description", :class => "label-description") %>
+			      <%= form.text_area :description, :value => @centre.description, :required => true, :maxlength =>"150" %>
+			    </li>
+			    <li>Offer Course(s):
+			    <%= form.collection_check_boxes :course_ids, @courses, :id, :course_name %>
+			    </li>
+				</ul>
+			</div>
 
-<%= form_with scope: :centre, model: @centre, local: true do |form| %>
+			<div class="form-left">
+		    <%= form.file_field :avatar %>
+			</div>
+		</div>
 
-  <p>
-    <%= form.label :centre_name %><br>
-    <%= form.text_field :centre_name, :value => @centre.centre_name, :required => true %>
-  </p>
-
-  <p>
-      Business Registration No.
-      <%= form.text_field :reg_no, :value => @centre.reg_no , :required => true %>
-    </p>
-    <p>
-      Contact No
-      <%= form.text_field :contact_no, :value => @centre.contact_no, :required => true %>
-    </p>
-    <p>
-      Location
-      <%= form.text_area :location, :value => @centre.location, :required => true %>
-    </p>
-    <p>
-      Description
-      <%= form.text_area :description, :value => @centre.description, :required => true, :maxlength =>"150" %>
-    </p>
-
-    <p>Offer Course(s):
-    <%= form.collection_check_boxes :course_ids, @courses, :id, :course_name %>
-    </p>
-
-  <p>
-    <legend>Avatar</legend><br>
-    <%= form.file_field :avatar %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
+  <div>
+    <%= form.submit(:class => "button-submit") %>
+  </div>
 
 <% end %>
-
-<%= link_to 'Back', dashboard_path %>
+</div>
