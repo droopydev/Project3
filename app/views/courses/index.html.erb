@@ -5,6 +5,28 @@
 	</div>
 </div>
 
+<div>
+  <div class="filtergrp">
+    <button class="btn btn-primary openclose" id="filterlocationbtn">Location</button>
+    <div class="form-popup" id="filterlocation">
+    <input class="filterlocation" type="checkbox" value='3-5 years old'>3-5 years old</input><br>
+    <input class="filterlocation" type="checkbox" value='6-10 years old'>6-10 years old</input><br>
+    <input class="filterlocation" type="checkbox" value='11-13 years old'>11-13 years old</input><br>
+    <button class="btn btn-primary filterlocation">Filter!</button>
+
+      </div>
+  </div>
+  <div class="filtergrp">
+    <button class="btn btn-primary openclose" id="filtercatbtn">Category</button>
+      <div class="form-popup" id="filtercat">
+          <input class="filtercat" type="checkbox" value='Language'>Language</input><br>
+          <input class="filtercat" type="checkbox" value='Music'>Music</input><br>
+          <input class="filtercat" type="checkbox" value='Culture'>Culture</input><br>
+          <input class="filtercat" type="checkbox" value='Science'>Science</input><br>
+          <button class="btn btn-primary filterage">Filter!</button>
+      </div>
+  </div>
+</div>
 
 <% if @courses.empty? %>
   No Courses Found

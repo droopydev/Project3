@@ -1,11 +1,5 @@
 class CartsController < ApplicationController
     before_action :authenticate_client!
-
-    def index
-        @carts = Cart.where(parent_id: parent_id)
-        @courses = Course.all
-        @centres = Centre.all
-    end
     
     def edit
         @cart = Cart.find(params[:id])
@@ -18,14 +12,14 @@ class CartsController < ApplicationController
     def update
         @cart = Cart.find(params[:id]) 
         @cart.update(cart_params)
-        redirect_to carts_path
+        redirect_to overview_path
     end
     
     def destroy
         @cart = Cart.find(params[:id])
         @cart.destroy
         
-        redirect_to carts_path
+        redirect_to overview_path
     end
     
     private

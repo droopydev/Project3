@@ -67,7 +67,8 @@
   box-shadow: 0 0 1px 2px rgba(0,0,0,.05), 0 -2px 1px -2px rgba(0,0,0,.04), 0 0 0 -1px rgba(0,0,0,.05);
 	float:left;
   width: 210px;
-  height: 240px;
+  min-height: 240px;
+  height: auto;
   margin: 10px;
 
 }
@@ -83,6 +84,8 @@
 }
 
 .card-body {
+	height: 100%;
+	justify-content: space-between;
 	display: flex;
 	flex-direction: column;
 }

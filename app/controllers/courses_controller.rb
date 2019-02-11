@@ -75,8 +75,8 @@ class CoursesController < ApplicationController
         parent_id = Parent.find_by(client_id: current_client.id).id
         @cart.parent_id = parent_id
         @cart.save
-        
-        redirect_to carts_path
+        byebug
+        redirect_to overview_path
     end
 
     private
