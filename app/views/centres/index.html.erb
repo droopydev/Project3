@@ -4,7 +4,21 @@
 <% if @centres.empty? %>
   No Centres Found
 <% else %>
+<div>
+<div class="filtergrp">
+  <button class="btn btn-primary openclose" id="filteragebtn">Age Group</button>
+  <div class="form-popup" id="filterage">
+  <input class="filterage" type="checkbox" value='North'>North</input><br>
+  <input class="filterage" type="checkbox" value='South'>South</input><br>
+  <input class="filterage" type="checkbox" value='East'>East</input><br>
+  <input class="filterage" type="checkbox" value='West'>West</input><br>
+  <button class="btn btn-primary filterage">Filter!</button>
+
+    </div>
+</div>
+</div>
 <% @centres.each do |centre| %>
+
   <div class="card" style="width: 30rem;">
     <% unless centre.avatar_url.nil? %><%= image_tag centre.avatar_url(:display) %><% end %> 
     <div class="card-body">

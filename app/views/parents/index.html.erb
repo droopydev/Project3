@@ -32,7 +32,17 @@
     <h3><b><i class="fa fa-book" aria-hidden="true"></i></b> Open Courses </h3>
 
     <div class="row">
+      
+    <% @carts.each_with_index do |item, index| %>
+      Index: <%= index+1 %><br>
+      Centre: <%= @centres.find_by(id: item.centre_id).centre_name %><br>
+      Class: <%= @courses.find_by(id: item.course_id).course_name %><br>
+      <a href=<%= edit_cart_path(item) %>>Edit</a>
+      <a href=<%= delete_cart_path(item) %>>Delete</a><br>
+  <% end %>
 
+
+  
       <% @courses.each do |course| %>
       <div class="col-4">
       <div class="card" style="width: 15rem;">
