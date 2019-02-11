@@ -6,15 +6,15 @@
     display: flex;
     padding-left: 36px;
     margin: 1em 0 2em 0;
-  }
+  // margin: 1em 0; lydia
+}
 
 .d-inline {
-    margin-left: 20px;
-    display: inline!important;
- }
+  margin-left: 20px;
+  display: inline !important;
+}
 
 .page-header-title h1 {
-
 }
 
 /////////////////////
@@ -22,10 +22,11 @@
 /////////////////////
 
 .dashboard-centre-wrapper {
-	display: flex;
-	flex-direction: row;
-	margin-bottom: 2em;
-	box-shadow: 0 0 5px 0 rgba(43,43,43,.1), 0 11px 6px -7px rgba(43,43,43,.1);
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2em;
+  box-shadow: 0 0 5px 0 rgba(43, 43, 43, 0.1),
+    0 11px 6px -7px rgba(43, 43, 43, 0.1);
 }
 
 .dashboard-home-icon-bg {
@@ -36,27 +37,27 @@
   color: white;
   -webkit-transform: scale(1.5);
   transform: scale(1.5);
-  box-shadow: 0 2px 12px -3px rgba(0,0,0,.5);
-  }
+  box-shadow: 0 2px 12px -3px rgba(0, 0, 0, 0.5);
+}
 
 .dashboard-centre {
-	// display: flex;
-	// flex-direction: row;
-	background-color: white;
-	// overflow: auto;
-	padding: 20px;
-	margin:0;
-	border-radius: 5px 0 0 5px;
-	justify-content: center;
-	// display: relative;
-	// width: 280px;
+  // display: flex;
+  // flex-direction: row;
+  background-color: white;
+  // overflow: auto;
+  padding: 20px;
+  margin: 0;
+  border-radius: 5px 0 0 5px;
+  justify-content: center;
+  // display: relative;
+  // width: 280px;
 }
 
 .dashboard-course {
-	background-color: #cbede0;
-	width: 100%;
-	padding: 20px;
-	margin:0;
+  background-color: #cbede0;
+  width: 100%;
+  padding: 20px;
+  margin: 0;
 }
 
 ////////////////
@@ -64,13 +65,13 @@
 ////////////////
 
 .card {
-  box-shadow: 0 0 1px 2px rgba(0,0,0,.05), 0 -2px 1px -2px rgba(0,0,0,.04), 0 0 0 -1px rgba(0,0,0,.05);
-	float:left;
+  box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.05),
+    0 -2px 1px -2px rgba(0, 0, 0, 0.04), 0 0 0 -1px rgba(0, 0, 0, 0.05);
+  float: left;
   width: 210px;
   min-height: 240px;
   height: auto;
   margin: 10px;
-
 }
 
 .card:hover {
@@ -79,8 +80,8 @@
 }
 
 .card img {
-	border-radius: 3px 3px 0 0;
-	width: 100%;
+  border-radius: 3px 3px 0 0;
+  width: 100%;
 }
 
 .card-body {
@@ -91,24 +92,24 @@
 }
 
 .card-body-bottom {
-	width: 100%;
+  width: 100%;
 }
 
 .card-icon {
-	float:right;
+  float: right;
 }
 
-.card-icon a{
-	padding-left: 5px;
-	color: #4e565f;
+.card-icon a {
+  padding-left: 5px;
+  color: #4e565f;
 }
 
 .card-icon a:hover {
-	color: #38C9B8;
+  color: #38c9b8;
 }
 
 .card-course {
-	// margin: 10px;
+  // margin: 10px;
 }
 
 ///////////////
@@ -122,26 +123,26 @@
 }
 
 .tab h3 {
-	font-weight: 700;
-	font-size: 1em;
+  font-weight: 700;
+  font-size: 1em;
 }
 
 .tab h3:after {
-    content: "";
-    background-color: #24c2b0;
-    width: 60px;
-    height: 1px;
-    position: absolute;
-    bottom: 0px;
-    left: 0;
+  content: "";
+  background-color: #24c2b0;
+  width: 60px;
+  height: 1px;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
 }
 
 .tab-course {
-	position: absolute;
+  position: absolute;
   margin-left: 300px;
 }
 
 .tab-centres {
-	position: absolute;
-	margin-left: 30px;
+  position: absolute;
+  margin-left: 30px;
 }

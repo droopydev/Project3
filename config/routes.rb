@@ -46,6 +46,6 @@ Rails.application.routes.draw do
   # carts path
   get '/cart/:id/edit' => 'carts#edit', as: 'edit_cart'
   patch '/cart/:id' => 'carts#update', as: 'update_cart'
-  delete '/cart/:id' => 'courses#destroy', as: 'delete_cart'
+  delete '/cart/:id' => 'carts#destroy', as: 'delete_cart'
     
 end
