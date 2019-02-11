@@ -17,23 +17,23 @@
 				<ul>
 					<li>
 						<%= label_tag(:course_name, "Course Name") %>
-			      <%= form.text_field :course_name, placeholder: "E.g. Advanced Abacus" %>
+			      <%= form.text_field :course_name, :required => true  %>
 			    </li>
 			    <li>
 						<%= label_tag(:age, "Age") %>
-					  <%= form.select(:age, options_for_select([['3-5 years old'], ['6-10 years old'], ['11-13 years old']]), {:prompt => 'Select Age Group'}, :class => "input-dropdown" ) %>
+					  <%= form.select(:age, options_for_select([['3-5 years old'], ['6-10 years old'], ['11-13 years old']]), {:prompt => 'Select Age Group'}, :class => "input-dropdown", :required => true ) %>
 			    </li>
 			    <li>
 						<%= label_tag(:location, "Category") %>
-				    <%= form.select(:category, options_for_select([['Language'], ['Music'], ['Culture'], ['Science']]), {:prompt => 'Select Category'}, :class => "input-dropdown" ) %>
+				    <%= form.select(:category, options_for_select([['Language'], ['Music'], ['Culture'], ['Science']]), {:prompt => 'Select Category'}, :class => "input-dropdown", :required => true ) %>
 			    </li>
 			    <li>
 			    	<%=	label_tag(:credits, "Credits") %>
-			    	<%= form.text_field :credits %>
+			    	<%= form.text_field :credits, :required => true  %>
 			    </li>
 			    <li>
 			    	<%= label_tag(:description, "Description") %>
-			    	<%= form.text_area :description %>
+			    	<%= form.text_area :description, :required => true, :maxlength =>"150"  %>
 			    </li>
 			    <li>
 			    	<%= label_tag(:centre_name, "Offered @") %>
