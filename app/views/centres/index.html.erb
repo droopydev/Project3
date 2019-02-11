@@ -1,3 +1,7 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "centre.js" %>
+<% end %>
+
 <h1>Centres Index</h1>
 
 
@@ -6,13 +10,13 @@
 <% else %>
 <div>
 <div class="filtergrp">
-  <button class="btn btn-primary openclose" id="filteragebtn">Age Group</button>
-  <div class="form-popup" id="filterage">
-  <input class="filterage" type="checkbox" value='North'>North</input><br>
-  <input class="filterage" type="checkbox" value='South'>South</input><br>
-  <input class="filterage" type="checkbox" value='East'>East</input><br>
-  <input class="filterage" type="checkbox" value='West'>West</input><br>
-  <button class="btn btn-primary filterage">Filter!</button>
+  <button class="btn btn-primary openclose" id="filterlocationbtn">Location</button>
+  <div class="form-popup" id="filterlocation">
+    <input class="filterlocation" type="checkbox" value='North'>North</input><br>
+    <input class="filterlocation" type="checkbox" value='South'>South</input><br>
+    <input class="filterlocation" type="checkbox" value='East'>East</input><br>
+    <input class="filterlocation" type="checkbox" value='West'>West</input><br>
+  <button id="filterlocationsubmit" class="btn btn-primary">Filter!</button>
 
     </div>
 </div>
