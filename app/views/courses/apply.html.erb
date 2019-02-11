@@ -14,7 +14,7 @@
     <%= form_with scope: :cart, url: post_apply_course_path, local: true do |form| %>       
         <div class="row spacing">
             I'd like my child to attend this course at: &nbsp;
-            <%= select_tag "centre_id", options_from_collection_for_select(@course.centres, "id", "centre_name"), prompt: "Select Centre", :required => true %>      
+            <%= collection_select(:cart, :centre_id, @course.centres, :id, :centre_name, :required => true) %>      
         </div>
         <div class="row spacing">
         <h6><i class="fa fa-check" aria-hidden="true"></i> By proceeding, I agree to all terms & conditions.</h6>
