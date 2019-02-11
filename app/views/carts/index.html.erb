@@ -6,4 +6,5 @@
     Centre: <%= @centres.find_by(id: item.centre_id).centre_name %><br>
     Class: <%= @courses.find_by(id: item.course_id).course_name %><br>
     <a href=<%= edit_cart_path(item) %>>Edit</a>
+    <a href=<%= delete_cart_path(item) %>>Delete</a><br>
 <% end %>
