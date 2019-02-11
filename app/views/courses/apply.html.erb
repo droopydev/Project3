@@ -3,7 +3,7 @@
 Apply for <%= @course.course_name %>
 
 <%= form_with scope: :cart, url: post_apply_course_path, local: true do |form| %>
-    <%= select_tag "centre_id", options_from_collection_for_select(@course.centres, "id", "centre_name"), prompt: "Select Centre", :required => true %>
+    <%=collection_select(:cart, :centre_id, @course.centres, :id, :centre_name, prompt: "Select Centre", :required => true) %>
     <%= form.submit(:class => "button-submit", :value => "Add to Cart") %>
 <% end %>
 

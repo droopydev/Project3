@@ -44,7 +44,9 @@ Rails.application.routes.draw do
   resources :parents
 
   # carts path
-  get '/carts' => 'carts#index', as: 'carts'
+  get '/cart' => 'carts#index', as: 'carts'
+  get '/cart/:id/edit' => 'carts#edit', as: 'edit_cart'
+  patch '/cart/:id' => 'carts#update', as: 'update_cart'
   
 
 end
