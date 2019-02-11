@@ -37,12 +37,14 @@ Rails.application.routes.draw do
   patch '/courses/:id' => 'courses#update'
   delete '/courses/:id' => 'courses#destroy', as: 'delete_course'
   get '/courses/:id/apply' => 'courses#apply', as: 'apply_course'
-  post '/courses/:id' => 'courses#applycreate'
+  post '/courses/:id' => 'courses#applycreate', as: 'post_apply_course'
   
   # parents path
   get '/overview' => 'parents#index', as: 'overview'
   resources :parents
 
   # carts path
+  get '/carts' => 'carts#index', as: 'carts'
+  
 
 end
