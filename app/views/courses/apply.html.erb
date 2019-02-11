@@ -11,7 +11,7 @@
 
     <div class="apply_card_bg "><% unless @course.avatar_url.nil? %><%= image_tag @course.avatar_url(:display) %><% end %></div>
 
-    <%= form_with scope: :cart, url: post_apply_course_path, local: true do |form| %>
+    <%= form_with scope: :cart, url: post_apply_course_path, local: true do |form| %>       
         <div class="row spacing">
             I'd like my child to attend this course at: &nbsp;
             <%= select_tag "centre_id", options_from_collection_for_select(@course.centres, "id", "centre_name"), prompt: "Select Centre", :required => true %>      
@@ -24,7 +24,7 @@
             <%= link_to 'Nope, changed my mind', courses_path, class:'btn btn-danger' %>
             </div>
             <div class="col">
-            <%= form.submit(:class => "btn btn-primary", :value => "Confirm to Cart") %>
+            <%= form.submit(:class => "btn btn-primary", :value => "Confirm Enrollment") %>
             </div>
         </div>
 
