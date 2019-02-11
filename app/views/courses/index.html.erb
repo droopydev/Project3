@@ -9,6 +9,7 @@
 	</div>
 </div>
 
+<% if !user_signed_in? %>
 <div>
   <div class="filtergrp">
     <button class="btn btn-primary openclose" id="filteragebtn">Age Group</button>
@@ -32,6 +33,8 @@
   </div>
   <button class="btn btn-info openclose" id="resetfilter">Reset Filter</button>
 </div>
+
+<% end %>
 
 <% if @courses.empty? %>
   No Courses Found

@@ -9,6 +9,7 @@
 	</div>
 </div>
 
+<% if !user_signed_in? %>
 <div>
 	<div class="filtergrp">
 	  <button class="btn btn-primary openclose" id="filterlocationbtn">Location</button>
@@ -23,6 +24,7 @@
   </div>
   <button class="btn btn-info openclose" id="resetfilter">Reset Filter</button>
 </div>
+<% end %>
 
 <% if @centres.empty? %>
   No Centres Found
