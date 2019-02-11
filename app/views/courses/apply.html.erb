@@ -1,10 +1,43 @@
-<h1>Application Form</h1>
-<% unless @course.avatar_url.nil? %><%= image_tag @course.avatar_url(:display) %><% end %>
-Apply for <%= @course.course_name %>
 
-<%= form_with scope: :cart, url: post_apply_course_path, local: true do |form| %>
-    <%= select_tag "centre_id", options_from_collection_for_select(@course.centres, "id", "centre_name"), prompt: "Select Centre", :required => true %>
-    <%= form.submit(:class => "button-submit", :value => "Add to Cart") %>
-<% end %>
+<div class="row">
 
-<%= link_to "Back", courses_path %>
+<div class="col-4 float-right">
+
+
+</div>
+
+<div class="col-4 application_form">
+
+    <div class="row spacing"><h4><i class="fa fa-trophy" aria-hidden="true"></i> You are now applying for <%= @course.course_name %></h4> </div>
+
+    <div class="apply_card_bg "><% unless @course.avatar_url.nil? %><%= image_tag @course.avatar_url(:display) %><% end %></div>
+
+    <%= form_with scope: :cart, url: post_apply_course_path, local: true do |form| %>
+        <div class="row spacing">
+            I'd like my child to attend this course at: &nbsp;
+            <%= select_tag "centre_id", options_from_collection_for_select(@course.centres, "id", "centre_name"), prompt: "Select Centre", :required => true %>      
+        </div>
+        <div class="row spacing">
+        <h6><i class="fa fa-check" aria-hidden="true"></i> By proceeding, I agree to all terms & conditions.</h6>
+        </div>
+        <div class="row spacing">
+            <div class="col">
+            <%= link_to 'Nope, changed my mind', courses_path, class:'btn btn-danger' %>
+            </div>
+            <div class="col">
+            <%= form.submit(:class => "btn btn-primary", :value => "Confirm to Cart") %>
+            </div>
+        </div>
+
+    <% end %>
+    
+</div>
+
+<div class="col-4">
+
+</div>
+
+</div>
+
+
+
