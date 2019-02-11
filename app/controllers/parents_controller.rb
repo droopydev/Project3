@@ -4,6 +4,8 @@ class ParentsController < ApplicationController
   def index
     @parent = Parent.where(client_id: current_client.id)[0]
     @courses = Course.all
+    @carts = Cart.where(parent_id: parent_id)
+    @centres = Centre.all
     if @parent.blank?
       redirect_to new_parent_path
     end
@@ -70,4 +72,8 @@ class ParentsController < ApplicationController
     def parent_params
       params.require(:parent).permit(:salutation, :name, :contact_no)
     end
+
+    def parent_id
+      return Parent.find_by(client_id: current_client.id).id
+  end
 end
