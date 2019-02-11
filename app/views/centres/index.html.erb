@@ -1,32 +1,39 @@
-<h1>Centres Index</h1>
+
+<div class="page-header-title">
+	<span><i class="fa fa-university dashboard-home-icon-bg" aria-hidden="true"></i></span>
+	<div class="d-inline">
+		<h3>All Centres</h3>
+	</div>
+</div>
 
 
 <% if @centres.empty? %>
   No Centres Found
-<% else %>
-<% @centres.each do |centre| %>
-  <div class="card" style="width: 30rem;">
-    <% unless centre.avatar_url.nil? %><%= image_tag centre.avatar_url(:display) %><% end %> 
-    <div class="card-body">
-      <h5 class="card-title"><%= centre.centre_name%></h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href=<%= centre_path(centre) %> class="btn btn-info">Preview</a>
-      <a href=<%= edit_centre_path(centre) %> class="btn btn-warning">Edit</a>
-      <%= link_to 'Delete', centre_path(centre),
-          method: :delete,
-          data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-    </div>
-  </div>
-  
-   <% end %>
-  
-<% end %>
+	<% else %>
+
+	<% @centres.each do |centre| %>
+	  <div class="card">
+	  	<a href=<%= centre_path(centre) %>>
+	    <% unless centre.avatar_url.nil? %><%= image_tag centre.avatar_url(:display) %><% end %>
+	    <div class="card-body">
+	      <h5 class="card-title"><%= centre.centre_name%></h5>
+	      <a href=<%= centre_path(centre) %> class="btn btn-info">Preview</a>
+	      <a href=<%= edit_centre_path(centre) %> class="btn btn-warning">Edit</a>
+	      <%= link_to 'Delete', centre_path(centre),
+	          method: :delete,
+	          data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+	    </div>
+	  </div>
+
+	   <% end %>
+
+	<% end %>
 
 <p>
 <% if user_signed_in? %>
 <%= link_to 'Back', dashboard_path %>
 
-<% else %> 
+<% else %>
 
 <%= link_to 'Back', root_path %>
 
