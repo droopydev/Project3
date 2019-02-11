@@ -12,10 +12,14 @@
       <h5 class="card-title"><%= course.course_name%></h5>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       <a href=<%= course_path(course) %> class="btn btn-info">Preview</a>
-      <a href=<%= edit_course_path(course) %> class="btn btn-warning">Edit</a>
-      <%= link_to 'Delete', course_path(course),
+      <% if user_signed_in? %>
+          <a href=<%= edit_course_path(course) %> class="btn btn-warning">Edit</a>
+          <%= link_to 'Delete', course_path(course),
           method: :delete,
           data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+      <% elsif client_signed_in? %>
+          <%= link_to 'Apply', apply_course_path(course), class: "btn btn-secondary"%>
+      <% end %>
   </div>
   </div>
   
