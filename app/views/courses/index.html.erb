@@ -1,3 +1,7 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "course.js" %>
+<% end %>
+
 <div class="page-header-title">
 	<span><i class="fa fa-pencil-square-o dashboard-home-icon-bg" aria-hidden="true"></i></span>
 	<div class="d-inline">
@@ -5,14 +9,15 @@
 	</div>
 </div>
 
-<!-- <div>
+<% if !user_signed_in? %>
+<div>
   <div class="filtergrp">
-    <button class="btn btn-primary openclose" id="filterlocationbtn">Location</button>
-    <div class="form-popup" id="filterlocation">
-    <input class="filterlocation" type="checkbox" value='3-5 years old'>3-5 years old</input><br>
-    <input class="filterlocation" type="checkbox" value='6-10 years old'>6-10 years old</input><br>
-    <input class="filterlocation" type="checkbox" value='11-13 years old'>11-13 years old</input><br>
-    <button class="btn btn-primary filterlocation">Filter!</button>
+    <button class="btn btn-primary openclose" id="filteragebtn">Age Group</button>
+    <div class="form-popup" id="filterage">
+    <input class="filterage" type="checkbox" value='3-5 years old'>3-5 years old</input><br>
+    <input class="filterage" type="checkbox" value='6-10 years old'>6-10 years old</input><br>
+    <input class="filterage" type="checkbox" value='11-13 years old'>11-13 years old</input><br>
+    <button id="filteragesubmit" class="btn btn-primary">Filter!</button>
 
       </div>
   </div>
@@ -23,11 +28,14 @@
           <input class="filtercat" type="checkbox" value='Music'>Music</input><br>
           <input class="filtercat" type="checkbox" value='Culture'>Culture</input><br>
           <input class="filtercat" type="checkbox" value='Science'>Science</input><br>
-          <button class="btn btn-primary filterage">Filter!</button>
+          <button id="filtercatsubmit" class="btn btn-primary">Filter!</button>
       </div>
   </div>
+  <button class="btn btn-info openclose" id="resetfilter">Reset Filter</button>
 </div>
- -->
+
+<% end %>
+
 <% if @courses.empty? %>
   No Courses Found
 

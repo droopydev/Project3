@@ -1,3 +1,7 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "centre.js" %>
+<% end %>
+
 <div class="page-header-title">
 	<span><i class="fa fa-university dashboard-home-icon-bg" aria-hidden="true"></i></span>
 	<div class="d-inline">
@@ -5,19 +9,22 @@
 	</div>
 </div>
 
+<% if !user_signed_in? %>
 <div>
 	<div class="filtergrp">
-	  <button class="btn btn-primary openclose" id="filteragebtn">Age Group</button>
-	  <div class="form-popup" id="filterage">
-	  <input class="filterage" type="checkbox" value='North'>North</input><br>
-	  <input class="filterage" type="checkbox" value='South'>South</input><br>
-	  <input class="filterage" type="checkbox" value='East'>East</input><br>
-	  <input class="filterage" type="checkbox" value='West'>West</input><br>
-	  <button class="btn btn-primary filterage">Filter!</button>
+	  <button class="btn btn-primary openclose" id="filterlocationbtn">Location</button>
+	  <div class="form-popup" id="filterlocation">
+	  <input class="filterlocation" type="checkbox" value='North'>North</input><br>
+	  <input class="filterlocation" type="checkbox" value='South'>South</input><br>
+	  <input class="filterlocation" type="checkbox" value='East'>East</input><br>
+	  <input class="filterlocation" type="checkbox" value='West'>West</input><br>
+	  <button id="filterlocationsubmit" class="btn btn-primary">Filter!</button>
 
 	    </div>
-	</div>
+  </div>
+  <button class="btn btn-info openclose" id="resetfilter">Reset Filter</button>
 </div>
+<% end %>
 
 <% if @centres.empty? %>
   No Centres Found

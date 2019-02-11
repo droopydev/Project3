@@ -1,3 +1,7 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "preview_centre.js" %>
+<% end %>
+
 <% if @centre.errors.any? %>
 <div class="alert alert-danger">
   <strong>Oh no!</strong>
@@ -36,7 +40,8 @@
 				  </ul>
 			  </div>
 				<div class="form-left">
-			    <%= form.file_field :avatar %>
+					<%= form.file_field :avatar %>
+					<div><img id="preview"/></div>
 			  </div>
 		</div>
 			  <%= form.submit(:class => "button-submit") %>
