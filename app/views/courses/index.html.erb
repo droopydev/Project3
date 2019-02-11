@@ -1,11 +1,11 @@
-<h1>Courses Index</h1>
+<div class="page-header-title">
+	<span><i class="fa fa-pencil-square-o dashboard-home-icon-bg" aria-hidden="true"></i></span>
+	<div class="d-inline">
+		<h3>All Courses</h3>
+	</div>
+</div>
 
-
-<% if @courses.empty? %>
-  No Courses Found
-
-<% else %>
-<div>
+<!-- <div>
   <div class="filtergrp">
     <button class="btn btn-primary openclose" id="filterlocationbtn">Location</button>
     <div class="form-popup" id="filterlocation">
@@ -27,36 +27,61 @@
       </div>
   </div>
 </div>
+ -->
+<% if @courses.empty? %>
+  No Courses Found
 
-<% @courses.each do |course| %>
-  <% if course.centre_ids.length > 0 %>
-  <div class="card" style="width: 30rem;">
-    <% unless course.avatar_url.nil? %><%= image_tag course.avatar_url(:display) %><% end %> 
-    <div class="card-body">
-      <h5 class="card-title"><%= course.course_name%></h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href=<%= course_path(course) %> class="btn btn-info">Preview</a>
-      <% if user_signed_in? %>
-          <a href=<%= edit_course_path(course) %> class="btn btn-warning">Edit</a>
-          <%= link_to 'Delete', course_path(course),
-          method: :delete,
-          data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-      <% elsif client_signed_in? %>
-          <%= link_to 'Apply', apply_course_path(course), class: "btn btn-secondary"%>
-      <% end %>
-  </div>
-  </div>
-  
-   <% end %>
-  <% end %>
-  
-<% end %>
+	<% else %>
+		<% if user_signed_in? %>
 
-<p>
-<% if user_signed_in? %>
-  <%= link_to 'Back', dashboard_path %>
-<% else %>
-  <%= link_to 'Back', root_path %>
-<% end %>
+			<% @courses.each do |course| %>
+		  <div class="card">
+				<a href=<%= course_path(course) %>>
+				<% unless course.avatar_url.nil? %><%= image_tag course.avatar_url(:display) %><% end %>
+				</a>
+				<div class="card-body">
+		      <h5 class="card-title"><%= course.course_name%></h5>
+						<div class="card-body-bottom">
+							<span class="card-location">
+								<%= course.category%>
+							</span>
+							<span class="card-icon">
+								<a href=<%= edit_course_path(course) %>>
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								</a>
+								<%= link_to ('<i class="fa fa-trash" aria-hidden="true"></i>').html_safe, course_path(course), method: :delete,
+	          data: { confirm: 'Are you sure?' } %>
+							</span>
+						</div>
+					</div>
+				</div>
+				<% end %>
 
-</p>
+			<% else %>
+
+				<% @courses.each do |course| %>
+				<% if course.centre_ids.length > 0 %>
+					<div class="card">
+						<a href=<%= course_path(course) %>>
+						<% unless course.avatar_url.nil? %><%= image_tag course.avatar_url(:display) %><% end %>
+						</a>
+						<div class="card-body">
+				      <h5 class="card-title"><%= course.course_name%></h5>
+
+							<% if client_signed_in? %>
+							 <%= link_to 'Apply', apply_course_path(course), class: "btn btn-secondary"%>
+							 <% end %>
+
+								<div class="card-body-bottom">
+									<p><%= course.age %></p>
+									<span class="card-location">
+										<%= course.category%>
+									</span>
+								</div>
+							</div>
+						</div>
+
+						<% end %>
+					<% end %>
+					<% end %>
+					<% end %>
