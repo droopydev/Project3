@@ -55,12 +55,14 @@
 		<div class="dashboard-course">
 			<% centre.courses.each do |course| %>
 			<div class="card card-course">
+				<a href=<%= course_path(course) %>>
 				<% unless course.avatar_url.nil? %><%= image_tag course.avatar_url(:display) %><% end %>
+				</a>
 				<div class="card-body">
 			    <h5 class="card-title"><%= course.course_name%></h5>
 			    <div class="card-body-bottom">
 			    	<span class="card-location">
-			    		<%= centre.location%>
+			    		<%= course.category%>
 			    	</span>
 				    <span class="card-icon">
 					    <a href=<%= edit_course_path(course) %>>

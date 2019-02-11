@@ -21,51 +21,31 @@
         <tbody>
             <tr><td>Salutation: <%= @parent.salutation %></td></tr>
             <tr><td>Name: <%= @parent.name %></td></tr>
-            <tr><td>Contact: <%= @parent.contact_no %></td></tr>      
+            <tr><td>Contact: <%= @parent.contact_no %></td></tr> 
+            <tr><td>&nbsp;</td></tr> 
+            <tr><td><a href=<%= courses_path %> class="btn btn-primary btn-md">Find a Course</a>&nbsp;<a href=<%= centres_path %> class=" btn btn-primary btn-md">Find a Centre</a></tr></td>
+   
         </tbody>
         
       </table>
       
     </div>
     <div class="col-7 div2">
-    <br/>
     <h3><b><i class="fa fa-book" aria-hidden="true"></i></b> Your child is enrolled in the these courses </h3>
-
-    <div class="row">
       
-    <% @carts.each_with_index do |item, index| %>
-      Index: <%= index+1 %><br>
-      Centre: <%= @centres.find_by(id: item.centre_id).centre_name %><br>
-      Class: <%= @courses.find_by(id: item.course_id).course_name %><br>
-      <a href=<%= edit_cart_path(item) %>>Edit</a>
-      <a href=<%= delete_cart_path(item) %>>Delete</a><br>
-  <% end %>
+        <% @carts.each_with_index do |item, index| %>
+           
+            <div class="card">
+              <img class="card-img-top" src="<%= @courses.find_by(id: item.course_id).avatar %>" alt="Card image cap">
 
-
-  
-      <% @courses.each do |course| %>
-      <div class="col-4">
-      <div class="card" style="width: 15rem;">
-      
-      <img class="card-img-top" src="<%= course.avatar %>" alt="Card image cap">
-      <div class="card-body">
-        
-        <b><h5 class="card-title"><%= course.course_name %></h5></b>
-        <p class="card-text"><%= course.description %></p>
-      </div>
-      <div class="card-body">
-        <span class="card-text"><%= course.credits %> credits</span>
-        <span class="card-text float-right"><%= course.category %></span>
-      </div>
-      </div> 
-      </div>
-      <% end %>
-       
-      </div>      
-
-    </div>
-    </div>
-
+              <div class="card-body">
+                <p>Course #: <%= index+1 %></p><br>      
+                <p class="card-text">Venue: <%= @centres.find_by(id: item.centre_id).centre_name %></p>
+                <p class="card-title">Class: <%= @courses.find_by(id: item.course_id).course_name %></p>
+                <span class="card-text float-right"><%= link_to 'Delete', delete_cart_path(item), method: :delete, data: {confirm: 'Are you sure?'} %><br></span>
+              </div>
+            </div>
+        <% end %>
 
 </div>
 

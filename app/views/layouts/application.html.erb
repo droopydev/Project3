@@ -22,13 +22,18 @@
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
 		  </button>
-
 			<% if client_signed_in? %>
-			  <a class="navbar-brand" href="/overview">StudyPass</a>
+			  <a class="navbar-brand" href="/overview">
+			  	<%= image_tag('studypass.png', :class => "logo") %>
+		  	</a>
 			<% elsif user_signed_in? %>
-			  <a class="navbar-brand" href="/dashboard">StudyPass</a>
+			  <a class="navbar-brand" href="/dashboard">
+			  	<%= image_tag('studypass.png', :class => "logo") %>
+			  </a>
 			<% else %>
-			  <a class="navbar-brand" href="/">StudyPass</a>
+			  <a class="navbar-brand" href="/">
+					<%= image_tag('studypass.png', :class => "logo") %>
+			  </a>
 			<% end %>
 
 	    <span class="navbar-text ml-auto">
@@ -307,7 +312,9 @@
 			</div>
 		</div>
   <% else %>
+	  <div class="content2">
     <%= yield %>
+	  </div>
 	<% end %>
 
 

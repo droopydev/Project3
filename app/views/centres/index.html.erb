@@ -2,51 +2,63 @@
   <%= javascript_include_tag "centre.js" %>
 <% end %>
 
-<h1>Centres Index</h1>
+<div class="page-header-title">
+	<span><i class="fa fa-university dashboard-home-icon-bg" aria-hidden="true"></i></span>
+	<div class="d-inline">
+		<h3>All Centres</h3>
+	</div>
+</div>
 
+<div>
+	<div class="filtergrp">
+	  <button class="btn btn-primary openclose" id="filteragebtn">Age Group</button>
+	  <div class="form-popup" id="filterage">
+	  <input class="filterage" type="checkbox" value='North'>North</input><br>
+	  <input class="filterage" type="checkbox" value='South'>South</input><br>
+	  <input class="filterage" type="checkbox" value='East'>East</input><br>
+	  <input class="filterage" type="checkbox" value='West'>West</input><br>
+	  <button class="btn btn-primary filterage">Filter!</button>
+
+	    </div>
+	</div>
+</div>
 
 <% if @centres.empty? %>
   No Centres Found
-<% else %>
-<div>
-<div class="filtergrp">
-  <button class="btn btn-primary openclose" id="filterlocationbtn">Location</button>
-  <div class="form-popup" id="filterlocation">
-    <input class="filterlocation" type="checkbox" value='North'>North</input><br>
-    <input class="filterlocation" type="checkbox" value='South'>South</input><br>
-    <input class="filterlocation" type="checkbox" value='East'>East</input><br>
-    <input class="filterlocation" type="checkbox" value='West'>West</input><br>
-  <button id="filterlocationsubmit" class="btn btn-primary">Filter!</button>
+	<% else %>
 
-    </div>
-</div>
-</div>
-<% @centres.each do |centre| %>
+	<% @centres.each do |centre| %>
+	  <div class="card">
+	  	<a href=<%= centre_path(centre) %>>
+	    <% unless centre.avatar_url.nil? %><%= image_tag centre.avatar_url(:display) %><% end %>
+		  </a>
+	    <div class="card-body">
+	      <h5 class="card-title"><%= centre.centre_name%></h5>
+			    <div class="card-body-bottom">
+			    	<span class="card-location">
+			    		<%= centre.location%>
+			    	</span>
+				    <span class="card-icon">
+					    <a href=<%= edit_centre_path(centre) %>>
+				    	<i class="fa fa-pencil" aria-hidden="true"></i>
+					    </a>
 
-  <div class="card" style="width: 30rem;">
-    <% unless centre.avatar_url.nil? %><%= image_tag centre.avatar_url(:display) %><% end %> 
-    <div class="card-body">
-      <h5 class="card-title"><%= centre.centre_name%></h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href=<%= centre_path(centre) %> class="btn btn-info">Preview</a>
-      <% if user_signed_in? %>
-        <a href=<%= edit_centre_path(centre) %> class="btn btn-warning">Edit</a>
-        <%= link_to 'Delete', centre_path(centre),
-            method: :delete,
-            data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-        <% end %>
-    </div>
-  </div>
-  
-   <% end %>
-  
-<% end %>
+					    <%= link_to	('<i class="fa fa-trash" aria-hidden="true"></i>').html_safe, centre_path(centre),
+					    method: :delete,
+					    data: { confirm: 'Are you sure?' } %>
+					  </span>
+					</div>
+	    </div>
+	  </div>
+
+	   <% end %>
+
+	<% end %>
 
 <p>
 <% if user_signed_in? %>
-<%= link_to 'Back', dashboard_path %>
 
-<% else %> 
+<% else %>
 
 <%= link_to 'Back', root_path %>
 
