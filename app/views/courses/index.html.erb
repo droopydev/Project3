@@ -29,6 +29,7 @@
 </div>
 
 <% @courses.each do |course| %>
+  <% if course.centre_ids.length > 0 %>
   <div class="card" style="width: 30rem;">
     <% unless course.avatar_url.nil? %><%= image_tag course.avatar_url(:display) %><% end %> 
     <div class="card-body">
@@ -47,6 +48,7 @@
   </div>
   
    <% end %>
+  <% end %>
   
 <% end %>
 

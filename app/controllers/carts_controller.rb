@@ -15,8 +15,9 @@ class CartsController < ApplicationController
         redirect_to overview_path
     end
     
-    def destroy
+    def destroy 
         @cart = Cart.find(params[:id])
+        byebug
         @cart.destroy
         
         redirect_to overview_path
