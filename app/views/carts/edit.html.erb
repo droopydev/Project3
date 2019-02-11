@@ -1,0 +1,7 @@
+<h1>Edit Cart</h1>
+
+Course Name: <%= @course.course_name %>
+Centre: <%= form_for @cart , url: update_cart_path(@cart) do |form| %>
+    <%=collection_select(:cart, :centre_id, @course.centres, :id, :centre_name) %>
+    <%= form.submit(:class => "button-submit", :value => "Update Cart") %>
+<% end %>
