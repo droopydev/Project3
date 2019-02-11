@@ -26,9 +26,10 @@
 <% if user_signed_in? %>
     <%= link_to 'Edit', edit_course_path %> |
     <%= link_to 'Back', dashboard_path %>
-<% else %>
-    <i class="fa fa-chevron-left" aria-hidden="true"></i> <%= link_to 'Back', courses_path %>
+<% elsif client_signed_in? %>
+    <%= link_to 'Apply', apply_course_path(@course), class: "btn btn-secondary"%>
 <% end %>
+<i class="fa fa-chevron-left" aria-hidden="true"></i> <%= link_to 'Back', courses_path %>
 </p>
 </div>
 
