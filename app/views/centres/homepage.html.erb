@@ -1,18 +1,61 @@
-<section id="about" class="text">
+<!-- <section id="about" class="text">
   <div class="container">
 
     <div class="row header_div">
 
-      
+
       <div class="col-lg-5">
         <p class="header ">Best classes for your bubbly ones.</p> <br/>
         <p class="header_two text-justify">Introducing a one-stop portal to finding the best tuition, enrichment and playgroup classes. </p>
         <a href=<%= courses_path %> class="btn btn-primary btn-md">Find a Course</a>
         <a href=<%= centres_path %> class=" btn btn-primary btn-md">Find a Centre</a>
       </div>
-      <div class="col-lg-5 mx-auto">       
+      <div class="col-lg-5 mx-auto">
         <p><%= image_tag('tuition.jpg') %></p>
       </div>
     </div>
   </div>
-</section>
+</section> -->
+
+<div class="landing-page">
+	<div class="landing-left">
+		<p class="header ">Best classes for your <span style="color:#24c2b0">bubbly</span> ones.</p>
+		<p class="header_two text-justify">Introducing a one-stop portal to finding the best tuition, enrichment and playgroup classes. </p>
+		<div class="landing-buttons">
+			<a href=<%= courses_path %> class="btn btn-primary btn-md" id="landing-course">Find a Course</a>
+			<a href=<%= centres_path %> class=" btn btn-primary btn-md" id="landing-centre">Find a Centre</a>
+		</div>
+	</div>
+
+	<div class="landing-right">
+
+		<div class="wrapper-landing">
+		  <div class="card-landing" id="card-1"><%= image_tag('landingone.png') %>
+		    <div class="info">
+		      <h1>Music</h1>
+<!-- 		      <button>Read More</button> -->
+		    </div>
+		  </div>
+		  <div class="card-landing" id="card-2"><%= image_tag('landingtwo.png') %>
+		    <div class="info">
+		      <h1>Arts</h1>
+<!-- 		      <button>Read More</button> -->
+		    </div>
+		  </div>
+		  <div class="card-landing" id="card-3"><%= image_tag('landingthree.png') %>
+		    <div class="info">
+		      <h1>Sports</h1>
+		      <!-- <button>Read More</button> -->
+		    </div>
+		  </div>
+		  <div class="card-landing" id="card-4"><%= image_tag('landingfour.png') %>
+		    <div class="info">
+		      <h1>Skill</h1>
+		      <!-- <button>Read More</button> -->
+		    </div>
+		  </div>
+
+		</div>
+
+	</div>
+</div>
