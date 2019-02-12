@@ -10,20 +10,20 @@
 </div>
 
 <% if !user_signed_in? %>
-<div>
+<div class="filter-parent">
 	<div class="filtergrp">
 	  <button class="btn btn-primary openclose" id="filterlocationbtn">Location</button>
 	  <div class="form-popup" id="filterlocation">
-	  <input class="filterlocation" type="checkbox" value='North'>North</input><br>
-	  <input class="filterlocation" type="checkbox" value='South'>South</input><br>
-	  <input class="filterlocation" type="checkbox" value='East'>East</input><br>
-	  <input class="filterlocation" type="checkbox" value='West'>West</input><br>
-	  <button id="filterlocationsubmit" class="btn btn-primary">Filter!</button>
-
-	    </div>
+		  <input class="filterlocation" type="checkbox" value='North'>North</input><br>
+		  <input class="filterlocation" type="checkbox" value='South'>South</input><br>
+		  <input class="filterlocation" type="checkbox" value='East'>East</input><br>
+		  <input class="filterlocation" type="checkbox" value='West'>West</input><br>
+		  <button id="filterlocationsubmit" class="btn btn-primary">Filter!</button>
+		</div>
   </div>
   <button class="btn btn-info openclose" id="resetfilter">Reset Filter</button>
 </div>
+
 <% end %>
 
 <% if @centres.empty? %>
@@ -41,15 +41,6 @@
 			    	<span class="card-location">
 			    		<%= centre.location%>
 			    	</span>
-				    <span class="card-icon">
-					    <a href=<%= edit_centre_path(centre) %>>
-				    	<i class="fa fa-pencil" aria-hidden="true"></i>
-					    </a>
-
-					    <%= link_to	('<i class="fa fa-trash" aria-hidden="true"></i>').html_safe, centre_path(centre),
-					    method: :delete,
-					    data: { confirm: 'Are you sure?' } %>
-					  </span>
 					</div>
 	    </div>
 	  </div>

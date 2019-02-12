@@ -10,7 +10,7 @@
 </div>
 
 <% if !user_signed_in? %>
-<div>
+<div class="filter-parent">
   <div class="filtergrp">
     <button class="btn btn-primary openclose" id="filteragebtn">Age Group</button>
     <div class="form-popup" id="filterage">
@@ -18,8 +18,7 @@
     <input class="filterage" type="checkbox" value='6-10 years old'>6-10 years old</input><br>
     <input class="filterage" type="checkbox" value='11-13 years old'>11-13 years old</input><br>
     <button id="filteragesubmit" class="btn btn-primary">Filter!</button>
-
-      </div>
+	  </div>
   </div>
   <div class="filtergrp">
     <button class="btn btn-primary openclose" id="filtercatbtn">Category</button>
