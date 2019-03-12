@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   devise_for :users,  controllers: {sessions: "users/sessions", registrations: "users/registrations"}
   root 'centres#homepage'
+  get '/' => 'centres#homepage'
 
   # error page for unauthorised access
   get '/error' => 'centres#error', as: 'error'
